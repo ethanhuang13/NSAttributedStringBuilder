@@ -1,3 +1,4 @@
 # NSAttributedStringBuilder
+An NSAttributedString syntax helper powerd by Function Builder.
 
-A description of this package.
+For details, see README in the [project root](https://github.com/ethanhuang13/NSAttributedStringBuilder).
