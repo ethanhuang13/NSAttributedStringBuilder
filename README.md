@@ -1,5 +1,5 @@
 # NSAttributedStringBuilder
-Composing NSAttributedString with SwiftUI-style syntax.
+Composing `NSAttributedString` with SwiftUI-style syntax.
 
 **NSAttributedStringBuilder** is a `NSAttributedString` syntax helper powerd by the now pitching [Function Builder](https://forums.swift.org/t/function-builders/25167). This project is in an early development stage, and currently mainly for proof-of-concept.
 
@@ -16,7 +16,7 @@ mas.append(NSAttributedString(string: "\n"))
 mas.append(NSAttributedString(string: "with Swift", attributes: [.font: UIFont.systemFont(ofSize: 20), .foregroundColor: UIColor.orange]))
 
 ```
-Now, wit **NSAttributedStringBuilder**, we can use SwiftUI-like syntax to declare `NSAttributedString`.
+Now, with **NSAttributedStringBuilder**, we can use SwiftUI-like syntax to declare `NSAttributedString`:
 
 ```Swift
 let attributedString = NSAttributedString {
@@ -31,8 +31,13 @@ let attributedString = NSAttributedString {
 
 ```
 
+## Requirement
+**NSAttributedStringBuilder** requires iOS 13, macOS 10.15, tvOS 13, or watchOS 13, because it uses Swift 5.1 features like [Function Builder](https://forums.swift.org/t/function-builders/25167) and [Opaque Result Type](https://github.com/apple/swift-evolution/blob/master/proposals/0244-opaque-result-types.md) (the `some` keyword). 
+
 ## Installation
-**NSAttributedStringBuilder** supports **Swift Package Manager**. Open your project in Xcode 11, navigate to **Menu -> Swift Packages -> Add Package Dependency** and enter [https://github.com/ethanhuang13/NSAttributedStringBuilder](https://github.com/ethanhuang13/NSAttributedStringBuilder) to install.
+**NSAttributedStringBuilder** supports **Swift Package Manager**. 
+
+Open your project in Xcode 11, navigate to **Menu -> Swift Packages -> Add Package Dependency** and enter [https://github.com/ethanhuang13/NSAttributedStringBuilder](https://github.com/ethanhuang13/NSAttributedStringBuilder) to install.
 
 ## SwiftUI Sample Project
 Besides clearer `NSAttributedString` syntax, since **NSAttributedStringBuilder** uses Function Builder it also enables API to build components in `UIViewRepresentable`(which embbed `UIView` in a SwiftUI `View`).
@@ -49,14 +54,12 @@ Then use `AttributedText` will be like:
 You can clone the [repo](https://github.com/ethanhuang13/NSAttributedStringBuilder) and open ***/SwiftUISampleApp/AttributedTextSample.xcodeproj***. The sample uses `UILabel`, you can also use an `UITextView` or `NSTextView`. 
 
 ## TODO
-* Support older system versions
 * Support more attributes like `NSParagraphStyle`
 * Support image attachment
 * More...
 
 ## Known Issue
-* Requires iOS 13+ or macOS 10.15 because using Swift 5.1's [opaque result type](https://github.com/apple/swift-evolution/blob/master/proposals/0244-opaque-result-types.md) (the `some` keyword) in `Component`'s protocol extension.
-* NSAttributedString does not support link color, therefore `Link` component with a `.color()` modifier has no effect. Alternatively you need to specify in `UITextView.linkTextAttributes` or `.tintColor`. 
+* `NSAttributedString` does not support link color, therefore `Link` component with a `.color()` modifier has no effect. Alternatively you need to specify in `UITextView.linkTextAttributes` or `.tintColor`. 
 
 ## Others
 Initially discussed on this [Twitter thread](https://twitter.com/ethanhuang13/status/1148135534826442752). Part of the code are inspired by [zonble](https://github.com/zonble/NSAttributedStringBuilder)🙏.
