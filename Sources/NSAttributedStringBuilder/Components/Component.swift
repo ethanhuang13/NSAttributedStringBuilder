@@ -94,18 +94,16 @@ extension Component {
         if let color = color {
             return attributes([.strikethroughStyle: style.rawValue,
                                .strikethroughColor: color])
-        } else {
-            return attributes([.strikethroughStyle: style.rawValue])
         }
+        return attributes([.strikethroughStyle: style.rawValue])
     }
 
     public func stroke(width: CGFloat, color: Color? = nil) -> some Component {
         if let color = color {
             return attributes([.strokeWidth: width,
                                .strokeColor: color])
-        } else {
-            return attributes([.strokeWidth: width])
         }
+        return attributes([.strokeWidth: width])
     }
 
     public func textEffect(_ textEffect: NSAttributedString.TextEffectStyle) -> some Component {
@@ -116,9 +114,8 @@ extension Component {
         if let color = color {
             return attributes([.underlineStyle: style.rawValue,
                                .underlineColor: color])
-        } else {
-            return attributes([.underlineStyle: style.rawValue])
         }
+        return attributes([.underlineStyle: style.rawValue])
     }
 
     public func writingDirection(_ writingDirection: NSWritingDirection) -> some Component {
@@ -144,16 +141,16 @@ extension Component {
     }
 
     private func getMutableParagraphStyle() -> NSMutableParagraphStyle {
-        let mps = NSMutableParagraphStyle()
-        if let paragraphStyle = attributes[.paragraphStyle] as? NSParagraphStyle {
-            mps.setParagraphStyle(paragraphStyle)
-        } else if let mutableParagraphStyle = attributes[.paragraphStyle] as? NSMutableParagraphStyle {
-            mps.setParagraphStyle(mutableParagraphStyle)
+        if let mps = attributes[.paragraphStyle] as? NSMutableParagraphStyle {
+            return mps
+        } else if let ps = attributes[.paragraphStyle] as? NSParagraphStyle,
+            let mps = ps.mutableCopy() as? NSMutableParagraphStyle {
+            return mps
         }
-        return mps
+        return NSMutableParagraphStyle()
     }
 
-    public func alignment(_ alignment: NSTextAlignment = .natural) -> some Component {
+    public func alignment(_ alignment: NSTextAlignment) -> some Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.alignment = alignment
         return self.paragraphStyle(paragraphStyle)
@@ -229,7 +226,7 @@ extension Component {
         return self.paragraphStyle(paragraphStyle)
     }
 
-    #if canImport(AppKit)
+    #if canImport(AppKit) && !targetEnvironment(UIKitForMac)
     public func textBlocks(_ textBlocks: [NSTextBlock]) -> some Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.textBlocks = textBlocks
@@ -258,6 +255,7 @@ extension Component {
 
 // MARK: - No 'modifiers' for these keys. Use .attributes() or .attribute(:value:) instead.
 
+/*
 #if canImport(UIKit)
 let iOSKeys: [NSAttributedString.Key] = [
     .UIAccessibilitySpeechAttributeSpellOut, // iOS 13+
@@ -272,7 +270,7 @@ let iOSKeys: [NSAttributedString.Key] = [
 ]
 #endif
 
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(UIKitForMac)
 let macOSKeys: [NSAttributedString.Key] = [
     .accessibilityAlignment, // macOS 10.12+
     .accessibilityAnnotationTextAttribute, // macOS 10.13+
@@ -304,3 +302,4 @@ let macOSKeys: [NSAttributedString.Key] = [
     .toolTip, // macOS 10.3+
 ]
 #endif
+*/

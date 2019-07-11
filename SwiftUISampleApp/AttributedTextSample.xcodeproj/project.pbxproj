@@ -309,7 +309,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AttributedTextSample/AttributedTextSample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "AttributedTextSample/Preview\\ Content";
 				DEVELOPMENT_TEAM = SE9N6X5V7C;
 				ENABLE_PREVIEWS = YES;
@@ -320,7 +319,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.elaborapp.AttributedTextSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_UIKITFORMAC = YES;
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -332,7 +331,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AttributedTextSample/AttributedTextSample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "AttributedTextSample/Preview\\ Content";
 				DEVELOPMENT_TEAM = SE9N6X5V7C;
 				ENABLE_PREVIEWS = YES;
@@ -343,7 +341,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.elaborapp.AttributedTextSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_UIKITFORMAC = YES;
+				SUPPORTS_UIKITFORMAC = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

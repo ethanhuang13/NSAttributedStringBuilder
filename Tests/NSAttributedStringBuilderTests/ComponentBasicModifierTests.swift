@@ -290,7 +290,7 @@ final class ComponentBasicModifierTests: XCTestCase {
         XCTAssertTrue(sut.isEqual(testData))
     }
 
-    func testWritingDirection() {
+    func testModifyWritingDirection() {
         let testData: NSAttributedString = {
             let mas = NSMutableAttributedString(string: "Hello world",
                                                 attributes: [.writingDirection: NSWritingDirection.rightToLeft.rawValue])
@@ -307,7 +307,26 @@ final class ComponentBasicModifierTests: XCTestCase {
         XCTAssertTrue(sut.isEqual(testData))
     }
 
-    func testModifyEverything() {
+    #if canImport(AppKit)
+    func testModifyVertical() {
+        let testData: NSAttributedString = {
+            let mas = NSMutableAttributedString(string: "Hello world",
+                                                attributes: [.verticalGlyphForm: 1])
+            mas.append(NSAttributedString(string: " with Swift"))
+            return mas
+        }()
+
+        let sut = NSAttributedString {
+            AttrText("Hello world")
+                .vertical()
+            AttrText(" with Swift")
+        }
+
+        XCTAssertTrue(sut.isEqual(testData))
+    }
+    #endif
+
+    func testChaining() {
         let testData: NSAttributedString = {
             let shadow = NSShadow()
             shadow.shadowColor = Color.black

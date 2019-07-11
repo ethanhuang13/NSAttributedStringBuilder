@@ -24,10 +24,5 @@ extension NSAttributedString {
         public var attributedString: NSAttributedString {
             NSAttributedString(string: string, attributes: attributes)
         }
-
-        public func color(_ color: Color) -> some Component {
-            print("Warning: Does not support change color of a Link")
-            return self
-        }
     }
 }
