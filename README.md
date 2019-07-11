@@ -1,7 +1,7 @@
 # NSAttributedStringBuilder
 Composing `NSAttributedString` with SwiftUI-style syntax.
 
-**NSAttributedStringBuilder** is a `NSAttributedString` syntax helper powerd by the now pitching [Function Builder](https://forums.swift.org/t/function-builders/25167). This project is in an early development stage, and currently mainly for proof-of-concept.
+**NSAttributedStringBuilder** is a `NSAttributedString` syntax helper powerd by the now pitching [Function Builder](https://forums.swift.org/t/function-builders/25167).
 
 Project Link: [https://github.com/ethanhuang13/NSAttributedStringBuilder](https://github.com/ethanhuang13/NSAttributedStringBuilder)
 
@@ -41,7 +41,7 @@ let attributedString = NSAttributedString {
 | 🧪 | Fully tested code |
 
 ## Requirement
-**NSAttributedStringBuilder** requires iOS 13, macOS 10.15, tvOS 13, or watchOS 13, because it uses Swift 5.1 features like [Function Builder](https://forums.swift.org/t/function-builders/25167) and [Opaque Result Type](https://github.com/apple/swift-evolution/blob/master/proposals/0244-opaque-result-types.md) (the `some` keyword). 
+**NSAttributedStringBuilder** requires iOS 13, macOS 10.15, tvOS 13, or watchOS 13, because it uses Swift 5.1 features like [Function Builder](https://forums.swift.org/t/function-builders/25167).
 
 ## Installation
 **NSAttributedStringBuilder** supports **Swift Package Manager**. 
