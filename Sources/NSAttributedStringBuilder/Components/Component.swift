@@ -22,7 +22,7 @@ public enum Ligature: Int {
 }
 
 extension Component {
-    private func build(_ string: String, attributes: Attributes) -> some Component {
+    private func build(_ string: String, attributes: Attributes) -> Component {
         return AttrText(string, attributes: attributes)
     }
 
@@ -30,11 +30,11 @@ extension Component {
         NSAttributedString(string: string, attributes: attributes)
     }
 
-    public func attribute(_ newAttribute: NSAttributedString.Key, value: Any) -> some Component {
+    public func attribute(_ newAttribute: NSAttributedString.Key, value: Any) -> Component {
         attributes([newAttribute: value])
     }
 
-    public func attributes(_ newAttributes: Attributes) -> some Component {
+    public func attributes(_ newAttributes: Attributes) -> Component {
         var attributes = self.attributes
         for attribute in newAttributes {
             attributes[attribute.key] = attribute.value
@@ -46,39 +46,39 @@ extension Component {
 // MARK: Basic Modifiers
 
 extension Component {
-    public func backgroundColor(_ color: Color) -> some Component {
+    public func backgroundColor(_ color: Color) -> Component {
         attributes([.backgroundColor: color])
     }
 
-    public func baselineOffset(_ baselineOffset: CGFloat) -> some Component {
+    public func baselineOffset(_ baselineOffset: CGFloat) -> Component {
         attributes([.baselineOffset: baselineOffset])
     }
 
-    public func font(_ font: Font) -> some Component {
+    public func font(_ font: Font) -> Component {
         attributes([.font: font])
     }
 
-    public func color(_ color: Color) -> some Component {
+    public func color(_ color: Color) -> Component {
         attributes([.foregroundColor: color])
     }
 
-    public func expansion(_ expansion: CGFloat) -> some Component {
+    public func expansion(_ expansion: CGFloat) -> Component {
         attributes([.expansion: expansion])
     }
 
-    public func kerning(_ kern: CGFloat) -> some Component {
+    public func kerning(_ kern: CGFloat) -> Component {
         attributes([.kern: kern])
     }
 
-    public func ligature(_ ligature: Ligature) -> some Component {
+    public func ligature(_ ligature: Ligature) -> Component {
         attributes([.ligature: ligature.rawValue])
     }
 
-    public func obliqueness(_ obliqueness: Float) -> some Component {
+    public func obliqueness(_ obliqueness: Float) -> Component {
         attributes([.obliqueness: obliqueness])
     }
 
-    public func shadow(color: Color? = nil, radius: CGFloat, x: CGFloat, y: CGFloat) -> some Component {
+    public func shadow(color: Color? = nil, radius: CGFloat, x: CGFloat, y: CGFloat) -> Component {
         let shadow = NSShadow()
         shadow.shadowColor = color
         shadow.shadowBlurRadius = radius
@@ -86,7 +86,7 @@ extension Component {
         return attributes([.shadow: shadow])
     }
 
-    public func strikethrough(style: NSUnderlineStyle, color: Color? = nil) -> some Component {
+    public func strikethrough(style: NSUnderlineStyle, color: Color? = nil) -> Component {
         if let color = color {
             return attributes([.strikethroughStyle: style.rawValue,
                                .strikethroughColor: color])
@@ -94,7 +94,7 @@ extension Component {
         return attributes([.strikethroughStyle: style.rawValue])
     }
 
-    public func stroke(width: CGFloat, color: Color? = nil) -> some Component {
+    public func stroke(width: CGFloat, color: Color? = nil) -> Component {
         if let color = color {
             return attributes([.strokeWidth: width,
                                .strokeColor: color])
@@ -102,11 +102,11 @@ extension Component {
         return attributes([.strokeWidth: width])
     }
 
-    public func textEffect(_ textEffect: NSAttributedString.TextEffectStyle) -> some Component {
+    public func textEffect(_ textEffect: NSAttributedString.TextEffectStyle) -> Component {
         return attributes([.textEffect: textEffect])
     }
 
-    public func underline(_ style: NSUnderlineStyle, color: Color? = nil) -> some Component {
+    public func underline(_ style: NSUnderlineStyle, color: Color? = nil) -> Component {
         if let color = color {
             return attributes([.underlineStyle: style.rawValue,
                                .underlineColor: color])
@@ -114,12 +114,12 @@ extension Component {
         return attributes([.underlineStyle: style.rawValue])
     }
 
-    public func writingDirection(_ writingDirection: NSWritingDirection) -> some Component {
+    public func writingDirection(_ writingDirection: NSWritingDirection) -> Component {
         return attributes([.writingDirection: writingDirection.rawValue])
     }
 
     #if canImport(AppKit)
-    public func vertical() -> some Component {
+    public func vertical() -> Component {
         return attributes([.verticalGlyphForm: 1])
     }
     #endif
@@ -128,11 +128,11 @@ extension Component {
 // MARK: - Paragraph Style Modifiers
 
 extension Component {
-    public func paragraphStyle(_ paragraphStyle: NSParagraphStyle) -> some Component {
+    public func paragraphStyle(_ paragraphStyle: NSParagraphStyle) -> Component {
         return attributes([.paragraphStyle: paragraphStyle])
     }
 
-    public func paragraphStyle(_ paragraphStyle: NSMutableParagraphStyle) -> some Component {
+    public func paragraphStyle(_ paragraphStyle: NSMutableParagraphStyle) -> Component {
         return attributes([.paragraphStyle: paragraphStyle])
     }
 
@@ -146,37 +146,37 @@ extension Component {
         return NSMutableParagraphStyle()
     }
 
-    public func alignment(_ alignment: NSTextAlignment) -> some Component {
+    public func alignment(_ alignment: NSTextAlignment) -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.alignment = alignment
         return self.paragraphStyle(paragraphStyle)
     }
 
-    public func firstLineHeadIndent(_ indent: CGFloat) -> some Component {
+    public func firstLineHeadIndent(_ indent: CGFloat) -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.firstLineHeadIndent = indent
         return self.paragraphStyle(paragraphStyle)
     }
 
-    public func headIndent(_ indent: CGFloat) -> some Component {
+    public func headIndent(_ indent: CGFloat) -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.headIndent = indent
         return self.paragraphStyle(paragraphStyle)
     }
 
-    public func tailIndent(_ indent: CGFloat) -> some Component {
+    public func tailIndent(_ indent: CGFloat) -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.tailIndent = indent
         return self.paragraphStyle(paragraphStyle)
     }
 
-    public func lineBreakeMode(_ lineBreakMode: NSLineBreakMode) -> some Component {
+    public func lineBreakeMode(_ lineBreakMode: NSLineBreakMode) -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.lineBreakMode = lineBreakMode
         return self.paragraphStyle(paragraphStyle)
     }
 
-    public func lineHeight(multiple: CGFloat = 0, maximum: CGFloat = 0, minimum: CGFloat) -> some Component {
+    public func lineHeight(multiple: CGFloat = 0, maximum: CGFloat = 0, minimum: CGFloat) -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = multiple
         paragraphStyle.maximumLineHeight = maximum
@@ -184,38 +184,38 @@ extension Component {
         return self.paragraphStyle(paragraphStyle)
     }
 
-    public func lineSpacing(_ spacing: CGFloat) -> some Component {
+    public func lineSpacing(_ spacing: CGFloat) -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.lineSpacing = spacing
         return self.paragraphStyle(paragraphStyle)
     }
 
-    public func paragraphSpacing(_ spacing: CGFloat, before: CGFloat = 0) -> some Component  {
+    public func paragraphSpacing(_ spacing: CGFloat, before: CGFloat = 0) -> Component  {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.paragraphSpacing = spacing
         paragraphStyle.paragraphSpacingBefore = before
         return self.paragraphStyle(paragraphStyle)
     }
 
-    public func baseWritingDirection(_ baseWritingDirection: NSWritingDirection) -> some Component {
+    public func baseWritingDirection(_ baseWritingDirection: NSWritingDirection) -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.baseWritingDirection = baseWritingDirection
         return self.paragraphStyle(paragraphStyle)
     }
 
-    public func hyphenationFactor(_ hyphenationFactor: Float) -> some Component {
+    public func hyphenationFactor(_ hyphenationFactor: Float) -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.hyphenationFactor = hyphenationFactor
         return self.paragraphStyle(paragraphStyle)
     }
 
-    public func allowsDefaultTighteningForTruncation() -> some Component {
+    public func allowsDefaultTighteningForTruncation() -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.allowsDefaultTighteningForTruncation = true
         return self.paragraphStyle(paragraphStyle)
     }
 
-    public func tabsStops(_ tabStops: [NSTextTab], defaultInterval: CGFloat = 0) -> some Component {
+    public func tabsStops(_ tabStops: [NSTextTab], defaultInterval: CGFloat = 0) -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.tabStops = tabStops
         paragraphStyle.defaultTabInterval = defaultInterval
@@ -223,25 +223,25 @@ extension Component {
     }
 
     #if canImport(AppKit) && !targetEnvironment(UIKitForMac)
-    public func textBlocks(_ textBlocks: [NSTextBlock]) -> some Component {
+    public func textBlocks(_ textBlocks: [NSTextBlock]) -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.textBlocks = textBlocks
         return self.paragraphStyle(paragraphStyle)
     }
 
-    public func textLists(_ textLists: [NSTextList]) -> some Component {
+    public func textLists(_ textLists: [NSTextList]) -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.textLists = textLists
         return self.paragraphStyle(paragraphStyle)
     }
 
-    public func tighteningFactorForTruncation(_ tighteningFactorForTruncation: Float) -> some Component {
+    public func tighteningFactorForTruncation(_ tighteningFactorForTruncation: Float) -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.tighteningFactorForTruncation = tighteningFactorForTruncation
         return self.paragraphStyle(paragraphStyle)
     }
 
-    public func headerLevel(_ headerLevel: Int) -> some Component {
+    public func headerLevel(_ headerLevel: Int) -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.headerLevel = headerLevel
         return self.paragraphStyle(paragraphStyle)
