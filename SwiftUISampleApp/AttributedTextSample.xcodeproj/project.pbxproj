@@ -13,12 +13,12 @@
 		6C65EA2E22D489A400EF32FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C65EA2D22D489A400EF32FB /* Assets.xcassets */; };
 		6C65EA3122D489A400EF32FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C65EA3022D489A400EF32FB /* Preview Assets.xcassets */; };
 		6C65EA3422D489A400EF32FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C65EA3222D489A400EF32FB /* LaunchScreen.storyboard */; };
-		6C77E8BD22D4B4A400958689 /* NSAttributedStringBuilder in Frameworks */ = {isa = PBXBuildFile; productRef = 6C77E8BC22D4B4A400958689 /* NSAttributedStringBuilder */; };
 		6CF300AA22D48AC200D8C7DF /* NSAttributedStringBuilder in Frameworks */ = {isa = PBXBuildFile; productRef = 6CF300A922D48AC200D8C7DF /* NSAttributedStringBuilder */; };
 		6CF300B522D4A36600D8C7DF /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF300B422D4A36600D8C7DF /* AttributedText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C456A1122D6EEAE00A02325 /* NSAttributedStringBuilder */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NSAttributedStringBuilder; path = ..; sourceTree = "<group>"; };
 		6C65EA2422D489A300EF32FB /* AttributedTextSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttributedTextSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C65EA2722D489A300EF32FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C65EA2922D489A300EF32FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +36,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C77E8BD22D4B4A400958689 /* NSAttributedStringBuilder in Frameworks */,
 				6CF300AA22D48AC200D8C7DF /* NSAttributedStringBuilder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +46,7 @@
 		6C65EA1B22D489A200EF32FB = {
 			isa = PBXGroup;
 			children = (
+				6C456A1122D6EEAE00A02325 /* NSAttributedStringBuilder */,
 				6C65EA2622D489A300EF32FB /* AttributedTextSample */,
 				6C65EA2522D489A300EF32FB /* Products */,
 				6CF300A822D48AC200D8C7DF /* Frameworks */,
@@ -110,7 +110,6 @@
 			name = AttributedTextSample;
 			packageProductDependencies = (
 				6CF300A922D48AC200D8C7DF /* NSAttributedStringBuilder */,
-				6C77E8BC22D4B4A400958689 /* NSAttributedStringBuilder */,
 			);
 			productName = AttributedTextSample;
 			productReference = 6C65EA2422D489A300EF32FB /* AttributedTextSample.app */;
@@ -141,7 +140,6 @@
 			);
 			mainGroup = 6C65EA1B22D489A200EF32FB;
 			packageReferences = (
-				6C77E8BB22D4B4A400958689 /* XCRemoteSwiftPackageReference "NSAttributedStringBuilder" */,
 			);
 			productRefGroup = 6C65EA2522D489A300EF32FB /* Products */;
 			projectDirPath = "";
@@ -374,23 +372,7 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		6C77E8BB22D4B4A400958689 /* XCRemoteSwiftPackageReference "NSAttributedStringBuilder" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ethanhuang13/NSAttributedStringBuilder";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		6C77E8BC22D4B4A400958689 /* NSAttributedStringBuilder */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6C77E8BB22D4B4A400958689 /* XCRemoteSwiftPackageReference "NSAttributedStringBuilder" */;
-			productName = NSAttributedStringBuilder;
-		};
 		6CF300A922D48AC200D8C7DF /* NSAttributedStringBuilder */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NSAttributedStringBuilder;
