@@ -2,7 +2,34 @@ import XCTest
 @testable import NSAttributedStringBuilder
 
 final class NSAttributedStringBuilderTests: XCTestCase {
-    func testInitWithStringsAndAttributes() {
+    func testInitWithTwoAttrText() {
+        let testData: NSAttributedString = {
+            let mas = NSMutableAttributedString(string: "Hello world")
+            mas.append(NSAttributedString(string: " with Swift"))
+            return mas
+        }()
+
+        let sut = NSAttributedString {
+            AttrText("Hello world")
+            AttrText(" with Swift")
+        }
+
+        XCTAssertTrue(sut.isEqual(testData))
+    }
+
+    func testInitTextWithFontAndColor() {
+        let testData: NSAttributedString = {
+            let mas = NSMutableAttributedString(string: "")
+            mas.append(NSAttributedString(string: "Hello world",
+                                          attributes: [
+                                            .font: UIFont.systemFont(ofSize: 20),
+                                            .foregroundColor: UIColor.red]))
+            mas.append(NSAttributedString(string: "\n"))
+            mas.append(NSAttributedString(string: "Second line",
+                                          attributes: [.font: UIFont.systemFont(ofSize: 24)]))
+            return mas
+        }()
+
         let sut = NSAttributedString {
             AttrText("Hello world")
                 .font(.systemFont(ofSize: 20))
@@ -12,28 +39,30 @@ final class NSAttributedStringBuilderTests: XCTestCase {
                 .font(.systemFont(ofSize: 24))
         }
 
-        XCTAssertNotNil(sut)
-        XCTAssertEqual(sut.string, "Hello world\nSecond line")
-        XCTAssertEqual(sut.attributes(at: 0, effectiveRange: nil)[.font] as? Font, Font.systemFont(ofSize: 20))
-        XCTAssertEqual(sut.attributes(at: 0, effectiveRange: nil)[.foregroundColor] as? Color, Color.red)
-        XCTAssertNotEqual(sut.attributes(at: 13, effectiveRange: nil)[.font] as? Font, Font.systemFont(ofSize: 20))
+        XCTAssertTrue(sut.isEqual(testData))
     }
 
     func testInitWithTextAndLink() {
+        let testData: NSAttributedString = {
+            let mas = NSMutableAttributedString(string: "")
+            mas.append(NSAttributedString(string: "Here is a link to ",
+                                          attributes: [.foregroundColor: UIColor.brown]))
+            mas.append(NSAttributedString(string: "Apple",
+                                          attributes: [.link: URL(string: "https://www.apple.com")!]))
+            return mas
+        }()
+
         let sut = NSAttributedString {
             AttrText("Here is a link to ")
                 .color(.brown)
             Link("Apple", url: URL(string: "https://www.apple.com")!)
-                .color(.red) // This won't work for NSAttributedString
         }
 
-        XCTAssertNotNil(sut)
-        XCTAssertTrue(sut.string.hasPrefix("Here is a link"))
-        XCTAssertEqual(sut.attributes(at: 19, effectiveRange: nil)[.link] as? URL, URL(string: "https://www.apple.com"))
+        XCTAssertTrue(sut.isEqual(testData))
     }
 
     static var allTests = [
-        ("testInitWithStringsAndAttributes", testInitWithStringsAndAttributes),
+        ("testInitTextWithFontAndColor", testInitTextWithFontAndColor),
         ("testInitWithTextAndLink", testInitWithTextAndLink)
     ]
 }
