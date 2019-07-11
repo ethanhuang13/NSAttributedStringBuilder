@@ -22,11 +22,11 @@ final class NSAttributedStringBuilderTests: XCTestCase {
             let mas = NSMutableAttributedString(string: "")
             mas.append(NSAttributedString(string: "Hello world",
                                           attributes: [
-                                            .font: UIFont.systemFont(ofSize: 20),
-                                            .foregroundColor: UIColor.red]))
+                                            .font: Font.systemFont(ofSize: 20),
+                                            .foregroundColor: Color.red]))
             mas.append(NSAttributedString(string: "\n"))
             mas.append(NSAttributedString(string: "Second line",
-                                          attributes: [.font: UIFont.systemFont(ofSize: 24)]))
+                                          attributes: [.font: Font.systemFont(ofSize: 24)]))
             return mas
         }()
 
@@ -46,7 +46,7 @@ final class NSAttributedStringBuilderTests: XCTestCase {
         let testData: NSAttributedString = {
             let mas = NSMutableAttributedString(string: "")
             mas.append(NSAttributedString(string: "Here is a link to ",
-                                          attributes: [.foregroundColor: UIColor.brown]))
+                                          attributes: [.foregroundColor: Color.brown]))
             mas.append(NSAttributedString(string: "Apple",
                                           attributes: [.link: URL(string: "https://www.apple.com")!]))
             return mas
