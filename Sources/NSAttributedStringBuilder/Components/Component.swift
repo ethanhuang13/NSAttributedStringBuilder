@@ -92,10 +92,10 @@ extension Component {
 
     public func strikethrough(style: NSUnderlineStyle, color: Color? = nil) -> some Component {
         if let color = color {
-            return attributes([.strikethroughStyle: style,
+            return attributes([.strikethroughStyle: style.rawValue,
                                .strikethroughColor: color])
         } else {
-            return attributes([.strikethroughStyle: style])
+            return attributes([.strikethroughStyle: style.rawValue])
         }
     }
 
@@ -112,17 +112,17 @@ extension Component {
         return attributes([.textEffect: textEffect])
     }
 
-    public func underlinestyle(style: NSUnderlineStyle, color: Color? = nil) -> some Component {
+    public func underline(_ style: NSUnderlineStyle, color: Color? = nil) -> some Component {
         if let color = color {
-            return attributes([.underlineStyle: style,
+            return attributes([.underlineStyle: style.rawValue,
                                .underlineColor: color])
         } else {
-            return attributes([.underlineStyle: style])
+            return attributes([.underlineStyle: style.rawValue])
         }
     }
 
     public func writingDirection(_ writingDirection: NSWritingDirection) -> some Component {
-        return attributes([.writingDirection: writingDirection])
+        return attributes([.writingDirection: writingDirection.rawValue])
     }
 
     #if canImport(AppKit)

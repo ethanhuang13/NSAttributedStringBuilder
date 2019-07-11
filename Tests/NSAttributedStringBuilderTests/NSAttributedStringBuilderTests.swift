@@ -17,31 +17,6 @@ final class NSAttributedStringBuilderTests: XCTestCase {
         XCTAssertTrue(sut.isEqual(testData))
     }
 
-    func testInitTextWithFontAndColor() {
-        let testData: NSAttributedString = {
-            let mas = NSMutableAttributedString(string: "")
-            mas.append(NSAttributedString(string: "Hello world",
-                                          attributes: [
-                                            .font: Font.systemFont(ofSize: 20),
-                                            .foregroundColor: Color.red]))
-            mas.append(NSAttributedString(string: "\n"))
-            mas.append(NSAttributedString(string: "Second line",
-                                          attributes: [.font: Font.systemFont(ofSize: 24)]))
-            return mas
-        }()
-
-        let sut = NSAttributedString {
-            AttrText("Hello world")
-                .font(.systemFont(ofSize: 20))
-                .color(.red)
-            AttrText.linebreak
-            AttrText("Second line")
-                .font(.systemFont(ofSize: 24))
-        }
-
-        XCTAssertTrue(sut.isEqual(testData))
-    }
-
     func testInitWithTextAndLink() {
         let testData: NSAttributedString = {
             let mas = NSMutableAttributedString(string: "")
@@ -62,7 +37,6 @@ final class NSAttributedStringBuilderTests: XCTestCase {
     }
 
     static var allTests = [
-        ("testInitTextWithFontAndColor", testInitTextWithFontAndColor),
         ("testInitWithTextAndLink", testInitWithTextAndLink)
     ]
 }

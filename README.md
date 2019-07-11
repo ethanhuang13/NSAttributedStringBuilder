@@ -54,7 +54,7 @@ Then use `AttributedText` will be like:
 You can clone the [repo](https://github.com/ethanhuang13/NSAttributedStringBuilder) and open ***/SwiftUISampleApp/AttributedTextSample.xcodeproj***. The sample uses `UILabel`, you can also use an `UITextView` or `NSTextView`. 
 
 ## TODO
-* Support more attributes like `NSParagraphStyle`
+* Tests for attributes
 * Support image attachment
 * More...
 
