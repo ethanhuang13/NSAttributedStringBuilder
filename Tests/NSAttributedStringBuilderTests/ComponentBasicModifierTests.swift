@@ -5,14 +5,14 @@ final class ComponentBasicModifierTests: XCTestCase {
     func testModifyWithSingleAttribute() {
         let testData: NSAttributedString = {
             let mas = NSMutableAttributedString(string: "Hello world",
-                                                attributes: [.foregroundColor: Color.red])
+                                                attributes: [.foregroundColor: Color.yellow])
             mas.append(NSAttributedString(string: " with Swift"))
             return mas
         }()
 
         let sut = NSAttributedString {
             AttrText("Hello world")
-                .attribute(.foregroundColor, value: Color.red)
+                .attribute(.foregroundColor, value: Color.yellow)
             AttrText(" with Swift")
         }
 
@@ -59,7 +59,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             mas.append(NSAttributedString(string: "Hello world",
                                           attributes: [
                                             .font: Font.systemFont(ofSize: 20),
-                                            .foregroundColor: Color.red]))
+                                            .foregroundColor: Color.yellow]))
             mas.append(NSAttributedString(string: "\n"))
             mas.append(NSAttributedString(string: "Second line",
                                           attributes: [.font: Font.systemFont(ofSize: 24)]))
@@ -69,7 +69,7 @@ final class ComponentBasicModifierTests: XCTestCase {
         let sut = NSAttributedString {
             AttrText("Hello world")
                 .font(.systemFont(ofSize: 20))
-                .color(.red)
+                .color(.yellow)
             AttrText.linebreak
             AttrText("Second line")
                 .font(.systemFont(ofSize: 24))
@@ -81,14 +81,14 @@ final class ComponentBasicModifierTests: XCTestCase {
     func testModifyExpansion() {
         let testData: NSAttributedString = {
             let mas = NSMutableAttributedString(string: "Hello world",
-                                                attributes: [.expansion: 10])
+                                                attributes: [.expansion: 1])
             mas.append(NSAttributedString(string: " with Swift"))
             return mas
         }()
 
         let sut = NSAttributedString {
             AttrText("Hello world")
-                .expansion(10)
+                .expansion(1)
             AttrText(" with Swift")
         }
 
@@ -132,14 +132,14 @@ final class ComponentBasicModifierTests: XCTestCase {
     func testModifyObliqueness() {
         let testData: NSAttributedString = {
             let mas = NSMutableAttributedString(string: "Hello world",
-                                                attributes: [.obliqueness: 4])
+                                                attributes: [.obliqueness: 0.5])
             mas.append(NSAttributedString(string: " with Swift"))
             return mas
         }()
 
         let sut = NSAttributedString {
             AttrText("Hello world")
-                .obliqueness(4)
+                .obliqueness(0.5)
             AttrText(" with Swift")
         }
 
@@ -206,14 +206,14 @@ final class ComponentBasicModifierTests: XCTestCase {
     func testModifyStroke() {
         let testData: NSAttributedString = {
             let mas = NSMutableAttributedString(string: "Hello world",
-                                                attributes: [.strokeWidth: 2])
+                                                attributes: [.strokeWidth: -2])
             mas.append(NSAttributedString(string: " with Swift"))
             return mas
         }()
 
         let sut = NSAttributedString {
             AttrText("Hello world")
-                .stroke(width: 2)
+                .stroke(width: -2)
             AttrText(" with Swift")
         }
 
@@ -223,7 +223,7 @@ final class ComponentBasicModifierTests: XCTestCase {
     func testModifyStrokeWithColor() {
         let testData: NSAttributedString = {
             let mas = NSMutableAttributedString(string: "Hello world",
-                                                attributes: [.strokeWidth: 2,
+                                                attributes: [.strokeWidth: -2,
                                                              .strokeColor: Color.green])
             mas.append(NSAttributedString(string: " with Swift"))
             return mas
@@ -231,7 +231,7 @@ final class ComponentBasicModifierTests: XCTestCase {
 
         let sut = NSAttributedString {
             AttrText("Hello world")
-                .stroke(width: 2, color: .green)
+                .stroke(width: -2, color: .green)
             AttrText(" with Swift")
         }
 
@@ -319,15 +319,15 @@ final class ComponentBasicModifierTests: XCTestCase {
                 attributes: [.backgroundColor: Color.red,
                              .baselineOffset: 10,
                              .font: Font.systemFont(ofSize: 20),
-                             .foregroundColor: Color.red,
-                             .expansion: 10,
+                             .foregroundColor: Color.yellow,
+                             .expansion: 1,
                              .kern: 3,
                              .ligature: 0,
-                             .obliqueness: 4,
+                             .obliqueness: 0.5,
                              .shadow: shadow,
                              .strikethroughStyle: NSUnderlineStyle.patternDash.rawValue,
                              .strikethroughColor: Color.black,
-                             .strokeWidth: 2,
+                             .strokeWidth: -2,
                              .strokeColor: Color.green,
                              .textEffect: NSAttributedString.TextEffectStyle.letterpressStyle,
                              .underlineStyle: NSUnderlineStyle.patternDashDotDot.rawValue,
@@ -343,14 +343,14 @@ final class ComponentBasicModifierTests: XCTestCase {
                 .backgroundColor(.red)
                 .baselineOffset(10)
                 .font(.systemFont(ofSize: 20))
-                .color(.red)
-                .expansion(10)
+                .color(.yellow)
+                .expansion(1)
                 .kerning(3)
                 .ligature(.none)
-                .obliqueness(4)
+                .obliqueness(0.5)
                 .shadow(color: .black, radius: 10, x: 4, y: 4)
                 .strikethrough(style: .patternDash, color: .black)
-                .stroke(width: 2, color: .green)
+                .stroke(width: -2, color: .green)
                 .textEffect(.letterpressStyle)
                 .underline(.patternDashDotDot, color: .cyan)
                 .writingDirection(.rightToLeft)
