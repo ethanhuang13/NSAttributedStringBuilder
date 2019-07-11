@@ -30,6 +30,15 @@ let attributedString = NSAttributedString {
 }
 
 ```
+## Features
+
+| | Features |
+| --- | --- |
+| 🐦 | Open source library written in Swift 5 |
+| 🍬 | SwiftUI-like syntax |
+| 💪 | Support most attributes in `NSAttributedString.Key` |
+| 📦 | Distribution with Swift Package Manager |
+| 🧪 | Fully tested code |
 
 ## Requirement
 **NSAttributedStringBuilder** requires iOS 13, macOS 10.15, tvOS 13, or watchOS 13, because it uses Swift 5.1 features like [Function Builder](https://forums.swift.org/t/function-builders/25167) and [Opaque Result Type](https://github.com/apple/swift-evolution/blob/master/proposals/0244-opaque-result-types.md) (the `some` keyword). 
@@ -51,12 +60,10 @@ To achieve this, `AttributedText.swift` uses `@NSAttributedStringBuilder` to sup
 Then use `AttributedText` will be like:
 ![demo](demo.png)
 
-You can clone the [repo](https://github.com/ethanhuang13/NSAttributedStringBuilder) and open ***/SwiftUISampleApp/AttributedTextSample.xcodeproj***. The sample uses `UILabel`, you can also use an `UITextView` or `NSTextView`. 
+You can clone the [repo](https://github.com/ethanhuang13/NSAttributedStringBuilder) and open ***/SwiftUISampleApp/AttributedTextSample.xcodeproj***. The sample uses `UITextView`, you can also use `UILabel` or `NSTextView`. 
 
 ## TODO
-* Tests for attributes
-* Support image attachment
-* More...
+* Tests pass for image attachment
 
 ## Known Issue
 * `NSAttributedString` does not support link color, therefore `Link` component with a `.color()` modifier has no effect. Alternatively you need to specify in `UITextView.linkTextAttributes` or `.tintColor`. 
