@@ -61,6 +61,11 @@
                BlueprintName = "NSAttributedStringBuilderTests"
                ReferencedContainer = "container:">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "ImageAttachmentTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

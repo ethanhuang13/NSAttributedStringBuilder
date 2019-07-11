@@ -1,9 +1,9 @@
 #if canImport(UIKit)
 import UIKit
-typealias Size = CGSize
+public typealias Size = CGSize
 #elseif canImport(AppKit)
 import AppKit
-typealias Size = NSSize
+public typealias Size = NSSize
 #endif
 
 public protocol Component {
@@ -46,10 +46,6 @@ extension Component {
 // MARK: Basic Modifiers
 
 extension Component {
-    public func attachment(_ attachment: NSTextAttachment) -> some Component {
-        attributes([.attachment: attachment])
-    }
-
     public func backgroundColor(_ color: Color) -> some Component {
         attributes([.backgroundColor: color])
     }

@@ -1,6 +1,13 @@
 import XCTest
 @testable import NSAttributedStringBuilder
 
+#if canImport(UIKit)
+import UIKit
+import Foundation
+#elseif canImport(AppKit)
+import AppKit
+#endif
+
 final class ComponentParagraphSylteModifierTests: XCTestCase {
     func testSetEmptyParagraphStyle() {
         let testData: NSAttributedString = {
@@ -268,12 +275,11 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
         XCTAssertTrue(sut.isEqual(testData))
     }
 
-    #if canImport(AppKit) && !targetEnvironment(UIKitForMac)
     func testModifyTabStops() {
         let testData: NSAttributedString = {
             let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.tabStops = [NSTextTab(type: .leftTabStopType, location: 6),
-                                       NSTextTab(type: .rightTabStopType, location: 4)]
+            paragraphStyle.tabStops = [NSTextTab(textAlignment: .left, location: 6, options: [:]),
+                                       NSTextTab(textAlignment: .right, location: 4, options: [:])]
 
             let mas = NSMutableAttributedString(string: "Hello world",
                                                 attributes: [.paragraphStyle: paragraphStyle])
@@ -283,13 +289,15 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
 
         let sut = NSAttributedString {
             AttrText("Hello world")
-                .tabsStops([NSTextTab(type: .leftTabStopType, location: 6),
-                            NSTextTab(type: .rightTabStopType, location: 4)])
+                .tabsStops([NSTextTab(textAlignment: .left, location: 6, options: [:]),
+                            NSTextTab(textAlignment: .right, location: 4, options: [:])])
             AttrText(" with Swift")
         }
 
         XCTAssertTrue(sut.isEqual(testData))
     }
+
+    #if canImport(AppKit) && !targetEnvironment(UIKitForMac)
 
     func testModifyTextBlocks() {
         let textBlock = NSTextBlock()

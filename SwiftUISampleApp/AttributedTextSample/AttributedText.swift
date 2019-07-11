@@ -31,6 +31,9 @@ final public class AttributedText: UIViewRepresentable {
 struct AttributedText_Previews : PreviewProvider {
     static var previews: some View {
         AttributedText {
+            ImageAttachment(UIImage(named: "Swift_logo_color_rgb.jpg")!, size: CGSize(width: 90, height: 90))
+            AttrText.linebreak
+                .lineSpacing(20)
             AttrText("Hello SwiftUI")
                 .backgroundColor(.red)
                 .baselineOffset(10)

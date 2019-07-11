@@ -17,6 +17,7 @@ struct ContentView : View {
 
             // UILabel: UIViewRepresentable 
             AttributedText {
+                ImageAttachment(UIImage(named: "Swift_logo_color_rgb.jpg")!)
                 AttrText("AttributedText Title")
                     .font(.preferredFont(forTextStyle: .largeTitle))
                 AttrText.linebreak
