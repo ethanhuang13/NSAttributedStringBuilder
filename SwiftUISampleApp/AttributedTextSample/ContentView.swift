@@ -26,6 +26,7 @@ struct ContentView : View {
                 Link("Attributed Link", url: URL(string: "https://www.apple.com")!)
                     .font(.preferredFont(forTextStyle: .body))
             }
+            .background(Color.gray)
         }
     }
 }

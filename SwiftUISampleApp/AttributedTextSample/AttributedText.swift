@@ -3,8 +3,6 @@ import NSAttributedStringBuilder
 
 /// A custom view to use NSAttributedString in SwiftUI
 final public class AttributedText: UIViewRepresentable {
-    var numberOfLines: Int = 0
-
     var attributedString: NSAttributedString
 
     private init(_ attributedString: NSAttributedString) {
@@ -15,16 +13,17 @@ final public class AttributedText: UIViewRepresentable {
         self.init(builder())
     }
 
-    public func makeUIView(context: UIViewRepresentableContext<AttributedText>) -> UILabel {
-        let label = UILabel(frame: .zero)
-        label.attributedText = self.attributedString
-        label.numberOfLines = self.numberOfLines
-        label.textAlignment = .center
-        return label
+    public func makeUIView(context: UIViewRepresentableContext<AttributedText>) -> UITextView {
+        let textView = UITextView(frame: .zero)
+        textView.attributedText = self.attributedString
+        textView.isEditable = false
+        textView.backgroundColor = .clear
+        textView.textAlignment = .center
+        return textView
     }
 
-    public func updateUIView(_ label: UILabel, context: UIViewRepresentableContext<AttributedText>) {
-        label.attributedText = self.attributedString
+    public func updateUIView(_ textView: UITextView, context: UIViewRepresentableContext<AttributedText>) {
+        textView.attributedText = self.attributedString
     }
 }
 
@@ -32,13 +31,23 @@ final public class AttributedText: UIViewRepresentable {
 struct AttributedText_Previews : PreviewProvider {
     static var previews: some View {
         AttributedText {
-            AttrText("Test Title")
-                .font(.preferredFont(forTextStyle: .headline))
-                .color(.red)
+            AttrText("Hello SwiftUI")
+                .backgroundColor(.red)
+                .baselineOffset(10)
+                .font(.systemFont(ofSize: 20))
+                .color(.yellow)
+                .expansion(1)
+                .kerning(3)
+                .ligature(.none)
+                .obliqueness(0.5)
+                .shadow(color: .black, radius: 10, x: 4, y: 4)
+                .strikethrough(style: .patternDash, color: .black)
+                .stroke(width: -2, color: .green)
+                .underline(.patternDashDotDot, color: .cyan)
             AttrText.linebreak
-            AttrText("Test subtitle")
-                .font(.preferredFont(forTextStyle: .subheadline))
-                .color(.green)
+            AttrText(" with fun")
+                .paragraphSpacing(10, before: 60)
+                .alignment(.right)
         }
     }
 }
