@@ -20,10 +20,10 @@ struct ContentView : View {
                 ImageAttachment(UIImage(named: "Swift_logo_color_rgb.jpg")!)
                 AText("AttributedText Title")
                     .font(.preferredFont(forTextStyle: .largeTitle))
-                AText.linebreak
+                LineBreak()
                 AText("AttributedText Subtitle")
                     .font(.preferredFont(forTextStyle: .headline))
-                AText.linebreak
+                LineBreak()
                 Link("Attributed Link", url: URL(string: "https://www.apple.com")!)
                     .font(.preferredFont(forTextStyle: .body))
             }

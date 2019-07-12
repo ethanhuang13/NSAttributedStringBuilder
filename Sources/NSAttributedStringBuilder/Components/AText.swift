@@ -17,8 +17,3 @@ extension NSAttributedString {
         }
     }
 }
-
-extension AText {
-    public static let space = AText(" ")
-    public static let linebreak = AText("\n")
-}

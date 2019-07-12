@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 ## [0.2.0] - 2019-07-12
-- Rename AttrText's typealias to AText
+- [Added] Static components
+- [Changed] Rename AttrText's typealias to AText
 
 ## [0.1.0] - 2019-07-11
 - Initial version

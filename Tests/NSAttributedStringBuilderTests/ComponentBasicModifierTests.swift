@@ -70,7 +70,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText("Hello world")
                 .font(.systemFont(ofSize: 20))
                 .color(.yellow)
-            AText.linebreak
+            LineBreak()
             AText("Second line")
                 .font(.systemFont(ofSize: 24))
         }

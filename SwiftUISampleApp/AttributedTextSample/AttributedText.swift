@@ -32,7 +32,7 @@ struct AttributedText_Previews : PreviewProvider {
     static var previews: some View {
         AttributedText {
             ImageAttachment(UIImage(named: "Swift_logo_color_rgb.jpg")!, size: CGSize(width: 90, height: 90))
-            AText.linebreak
+            LineBreak()
                 .lineSpacing(20)
             AText("Hello SwiftUI")
                 .backgroundColor(.red)
@@ -47,7 +47,7 @@ struct AttributedText_Previews : PreviewProvider {
                 .strikethrough(style: .patternDash, color: .black)
                 .stroke(width: -2, color: .green)
                 .underline(.patternDashDotDot, color: .cyan)
-            AText.linebreak
+            LineBreak()
             AText(" with fun")
                 .paragraphSpacing(10, before: 60)
                 .alignment(.right)

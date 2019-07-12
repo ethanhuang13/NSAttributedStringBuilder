@@ -38,7 +38,7 @@ let attributedString = NSAttributedString {
     AText("Hello world")
         .font(.systemFont(ofSize: 24))
         .color(.red)
-    AText.linebreak
+    LineBreak()
     AText("with Swift")
         .font(.systemFont(ofSize: 20))
         .color(.orange)
@@ -46,11 +46,11 @@ let attributedString = NSAttributedString {
 
 ```
 
-## Requirement
-**NSAttributedStringBuilder** requires iOS 13, macOS 10.15, tvOS 13, or watchOS 13, because it uses Swift 5.1 features like [Function Builder](https://forums.swift.org/t/function-builders/25167).
+## Requirements
+iOS 13, macOS 10.15, tvOS 13, or watchOS 13, because it uses Swift 5.1 features like [Function Builder](https://forums.swift.org/t/function-builders/25167).
 
 ## Installation
-**NSAttributedStringBuilder** supports **Swift Package Manager**. 
+Please use **Swift Package Manager** to install. 
 
 Open your project in Xcode 11, navigate to **Menu -> Swift Packages -> Add Package Dependency** and enter [https://github.com/ethanhuang13/NSAttributedStringBuilder](https://github.com/ethanhuang13/NSAttributedStringBuilder) to install.
 
