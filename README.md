@@ -63,10 +63,10 @@ To achieve this, `AttributedText.swift` uses `@NSAttributedStringBuilder` to sup
 
 ![AttributedText.swift](demo2.png)
 
-Then use `AttributedText` will be like:
+Then using an `AttributedText` will be like:
 ![demo](demo.png)
 
-You can clone the [repo](https://github.com/ethanhuang13/NSAttributedStringBuilder) and open ***/SwiftUISampleApp/AttributedTextSample.xcodeproj***. The sample uses `UITextView`, you can also use `UILabel` or `NSTextView`. 
+Open the sample in ***/SwiftUISampleApp/AttributedTextSample.xcodeproj*** and check `AttributedText`. It uses `UITextView`, you can also use `UILabel` or `NSTextView`. 
 
 ## TODO
 * Better tests for image attachment
@@ -75,4 +75,4 @@ You can clone the [repo](https://github.com/ethanhuang13/NSAttributedStringBuild
 * `NSAttributedString` does not support link color, therefore `Link` component with a `.color()` modifier has no effect. Alternatively you need to specify in `UITextView.linkTextAttributes` or `.tintColor`. 
 
 ## Others
-Initially discussed on this [Twitter thread](https://twitter.com/ethanhuang13/status/1148135534826442752). Part of the code are inspired by [zonble](https://github.com/zonble/NSAttributedStringBuilder)🙏.
+Initially discussed on this [Twitter thread](https://twitter.com/ethanhuang13/status/1148135534826442752). Some code are inspired by [zonble](https://github.com/zonble/NSAttributedStringBuilder)🙏.
