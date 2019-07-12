@@ -8,7 +8,7 @@ final class ImageAttachmentTests: XCTestCase {
 
         let sut = NSAttributedString {
             ImageAttachment(testImage, size: CGSize(width: 40, height: 40))
-            AttrText.linebreak
+            AText.linebreak
         }
 
         XCTAssertNotNil(sut.attributes(at: 0, effectiveRange: nil)[.attachment])

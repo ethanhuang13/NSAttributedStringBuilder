@@ -35,11 +35,11 @@ Now, with **NSAttributedStringBuilder**, we can use SwiftUI-like syntax to decla
 
 ```Swift
 let attributedString = NSAttributedString {
-    AttrText("Hello world")
+    AText("Hello world")
         .font(.systemFont(ofSize: 24))
         .color(.red)
-    AttrText.linebreak
-    AttrText("with Swift")
+    AText.linebreak
+    AText("with Swift")
         .font(.systemFont(ofSize: 20))
         .color(.orange)
 }

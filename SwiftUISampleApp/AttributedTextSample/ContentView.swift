@@ -18,12 +18,12 @@ struct ContentView : View {
             // UILabel: UIViewRepresentable 
             AttributedText {
                 ImageAttachment(UIImage(named: "Swift_logo_color_rgb.jpg")!)
-                AttrText("AttributedText Title")
+                AText("AttributedText Title")
                     .font(.preferredFont(forTextStyle: .largeTitle))
-                AttrText.linebreak
-                AttrText("AttributedText Subtitle")
+                AText.linebreak
+                AText("AttributedText Subtitle")
                     .font(.preferredFont(forTextStyle: .headline))
-                AttrText.linebreak
+                AText.linebreak
                 Link("Attributed Link", url: URL(string: "https://www.apple.com")!)
                     .font(.preferredFont(forTextStyle: .body))
             }

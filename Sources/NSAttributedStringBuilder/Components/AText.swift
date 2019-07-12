@@ -4,7 +4,7 @@ import UIKit
 import AppKit
 #endif
 
-public typealias AttrText = NSAttributedString.AttrText
+public typealias AText = NSAttributedString.AttrText
 
 extension NSAttributedString {
     public struct AttrText: Component {
@@ -18,7 +18,7 @@ extension NSAttributedString {
     }
 }
 
-extension AttrText {
-    public static let space = AttrText(" ")
-    public static let linebreak = AttrText("\n")
+extension AText {
+    public static let space = AText(" ")
+    public static let linebreak = AText("\n")
 }

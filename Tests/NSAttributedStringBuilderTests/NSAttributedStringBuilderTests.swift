@@ -2,7 +2,7 @@ import XCTest
 @testable import NSAttributedStringBuilder
 
 final class NSAttributedStringBuilderTests: XCTestCase {
-    func testInitWithTwoAttrText() {
+    func testInitWithTwoAText() {
         let testData: NSAttributedString = {
             let mas = NSMutableAttributedString(string: "Hello world")
             mas.append(NSAttributedString(string: " with Swift"))
@@ -10,8 +10,8 @@ final class NSAttributedStringBuilderTests: XCTestCase {
         }()
 
         let sut = NSAttributedString {
-            AttrText("Hello world")
-            AttrText(" with Swift")
+            AText("Hello world")
+            AText(" with Swift")
         }
 
         XCTAssertTrue(sut.isEqual(testData))
@@ -28,7 +28,7 @@ final class NSAttributedStringBuilderTests: XCTestCase {
         }()
 
         let sut = NSAttributedString {
-            AttrText("Here is a link to ")
+            AText("Here is a link to ")
                 .color(.brown)
             Link("Apple", url: URL(string: "https://www.apple.com")!)
         }

@@ -23,7 +23,7 @@ public enum Ligature: Int {
 
 extension Component {
     private func build(_ string: String, attributes: Attributes) -> Component {
-        return AttrText(string, attributes: attributes)
+        return AText(string, attributes: attributes)
     }
 
     public var attributedString: NSAttributedString {
