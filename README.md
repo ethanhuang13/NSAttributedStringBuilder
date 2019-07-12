@@ -1,5 +1,6 @@
 # NSAttributedStringBuilder
 [![Build Status](https://travis-ci.org/ethanhuang13/NSAttributedStringBuilder.svg?branch=master)](https://travis-ci.org/ethanhuang13/NSAttributedStringBuilder)
+[![codecov](https://codecov.io/gh/ethanhuang13/NSAttributedStringBuilder/branch/master/graph/badge.svg)](https://codecov.io/gh/ethanhuang13/NSAttributedStringBuilder)
 [![GitHub release](https://img.shields.io/github/release/ethanhuang13/nsattributedstringbuilder.svg)]()
 ![GitHub top language](https://img.shields.io/github/languages/top/ethanhuang13/nsattributedstringbuilder.svg)
 [![License](https://img.shields.io/github/license/ethanhuang13/nsattributedstringbuilder.svg)](https://github.com/ethanhuang13/ladybug/blob/master/LICENSE)

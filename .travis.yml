@@ -1,3 +1,6 @@
-language: objective-c
+language: swift
 osx_image: xcode11
-script: xcodebuild -sdk iphonesimulator -project ./SwiftUISampleApp/AttributedTextSample.xcodeproj -scheme AttributedTextSample -destination 'platform=iOS Simulator,name=iPhone Xʀ,OS=13.0' test
+script: 
+  - xcodebuild -sdk iphonesimulator -project ./SwiftUISampleApp/AttributedTextSample.xcodeproj -scheme AttributedTextSample -destination 'platform=iOS Simulator,name=iPhone Xʀ,OS=13.0' test
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
