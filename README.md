@@ -62,10 +62,10 @@ Just like a SwiftUI `Text` takes a `String` as input, the purpose of `Attributed
 
 To achieve this, `AttributedText.swift` uses `@NSAttributedStringBuilder` to support SwiftUI-style syntax:
 
-![AttributedText.swift](demo2.png)
+![AttributedText.swift](demo2.jpg)
 
 Then using an `AttributedText` will be like:
-![demo](demo.png)
+![ContentView.swift](demo.jpg)
 
 Open the sample in ***/SwiftUISampleApp/AttributedTextSample.xcodeproj*** and check `AttributedText`. It uses `UITextView`, you can also use `UILabel` or `NSTextView`. 
 
