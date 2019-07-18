@@ -38,17 +38,17 @@ Now, with **NSAttributedStringBuilder**, we can use SwiftUI-like syntax to decla
 let attributedString = NSAttributedString {
     AText("Hello world")
         .font(.systemFont(ofSize: 24))
-        .color(.red)
+        .foregroundColor(.red)
     LineBreak()
     AText("with Swift")
         .font(.systemFont(ofSize: 20))
-        .color(.orange)
+        .foregroundColor(.orange)
 }
 
 ```
 
 ## Requirements
-iOS 13, macOS 10.15, tvOS 13, or watchOS 13, because it uses Swift 5.1 features like [Function Builder](https://forums.swift.org/t/function-builders/25167).
+Xcode 11 beta 4, iOS 13, macOS 10.15, tvOS 13, or watchOS 13, because it uses Swift 5.1 features like [Function Builder](https://forums.swift.org/t/function-builders/25167).
 
 ## Installation
 Please use **Swift Package Manager** to install. 

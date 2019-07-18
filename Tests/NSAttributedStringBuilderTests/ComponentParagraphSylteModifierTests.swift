@@ -297,7 +297,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
         XCTAssertTrue(sut.isEqual(testData))
     }
 
-    #if canImport(AppKit) && !targetEnvironment(UIKitForMac)
+    #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 
     func testModifyTextBlocks() {
         let textBlock = NSTextBlock()

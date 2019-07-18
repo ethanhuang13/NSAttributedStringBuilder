@@ -38,7 +38,7 @@ struct AttributedText_Previews : PreviewProvider {
                 .backgroundColor(.red)
                 .baselineOffset(10)
                 .font(.systemFont(ofSize: 20))
-                .color(.yellow)
+                .foregroundColor(.yellow)
                 .expansion(1)
                 .kerning(3)
                 .ligature(.none)

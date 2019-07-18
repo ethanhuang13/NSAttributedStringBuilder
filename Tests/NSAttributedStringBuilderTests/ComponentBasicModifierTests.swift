@@ -69,7 +69,7 @@ final class ComponentBasicModifierTests: XCTestCase {
         let sut = NSAttributedString {
             AText("Hello world")
                 .font(.systemFont(ofSize: 20))
-                .color(.yellow)
+                .foregroundColor(.yellow)
             LineBreak()
             AText("Second line")
                 .font(.systemFont(ofSize: 24))
@@ -362,7 +362,7 @@ final class ComponentBasicModifierTests: XCTestCase {
                 .backgroundColor(.red)
                 .baselineOffset(10)
                 .font(.systemFont(ofSize: 20))
-                .color(.yellow)
+                .foregroundColor(.yellow)
                 .expansion(1)
                 .kerning(3)
                 .ligature(.none)

@@ -29,7 +29,7 @@ final class NSAttributedStringBuilderTests: XCTestCase {
 
         let sut = NSAttributedString {
             AText("Here is a link to ")
-                .color(.brown)
+                .foregroundColor(.brown)
             Link("Apple", url: URL(string: "https://www.apple.com")!)
         }
 

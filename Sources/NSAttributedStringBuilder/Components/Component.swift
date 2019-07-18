@@ -58,7 +58,7 @@ extension Component {
         attributes([.font: font])
     }
 
-    public func color(_ color: Color) -> Component {
+    public func foregroundColor(_ color: Color) -> Component {
         attributes([.foregroundColor: color])
     }
 
@@ -222,7 +222,7 @@ extension Component {
         return self.paragraphStyle(paragraphStyle)
     }
 
-    #if canImport(AppKit) && !targetEnvironment(UIKitForMac)
+    #if canImport(AppKit) && !targetEnvironment(macCatalyst)
     public func textBlocks(_ textBlocks: [NSTextBlock]) -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.textBlocks = textBlocks

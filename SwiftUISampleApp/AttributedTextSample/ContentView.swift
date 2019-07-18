@@ -1,9 +1,11 @@
-import SwiftUI
 import NSAttributedStringBuilder
+import SwiftUI
+
+let image = UIImage(named: "Swift_logo_color_rgb.jpg")!
 
 struct ContentView : View {
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("Text Title")
                 .font(.largeTitle)
             Text("Text Subtitle")
@@ -11,13 +13,12 @@ struct ContentView : View {
             Text("Text Link")
                 .font(.body)
                 .underline()
-                .color(.blue)
+                .foregroundColor(.blue)
+            Image(uiImage: image)
+                .padding(.bottom)
 
-            Spacer()
-
-            // UILabel: UIViewRepresentable 
+            // UITextView: UIViewRepresentable 
             AttributedText {
-                ImageAttachment(UIImage(named: "Swift_logo_color_rgb.jpg")!)
                 AText("AttributedText Title")
                     .font(.preferredFont(forTextStyle: .largeTitle))
                 LineBreak()
@@ -26,8 +27,9 @@ struct ContentView : View {
                 LineBreak()
                 Link("Attributed Link", url: URL(string: "https://www.apple.com")!)
                     .font(.preferredFont(forTextStyle: .body))
+                LineBreak()
+                ImageAttachment(image)
             }
-            .background(Color.gray)
         }
     }
 }
