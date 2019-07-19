@@ -255,6 +255,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
         XCTAssertTrue(sut.isEqual(testData))
     }
 
+    @available(iOS 9.0, tvOS 9.0, watchOS 2.0, OSX 10.11, *)
     func testAllowsDefaultTighteningForTruncation() {
         let testData: NSAttributedString = {
             let paragraphStyle = NSMutableParagraphStyle()
@@ -322,6 +323,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
         XCTAssertTrue(sut.isEqual(testData))
     }
 
+    @available(OSX 10.13, *)
     func testModifyTextList() {
         let textList = NSTextList(markerFormat: .box, options: 0)
 
@@ -385,6 +387,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
     }
     #endif
 
+    @available(iOS 9.0, tvOS 9.0, watchOS 2.0, OSX 10.11, *)
     func testChaining() {
         let testData: NSAttributedString = {
             let paragraphStyle = NSMutableParagraphStyle()
@@ -428,6 +431,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
         XCTAssertTrue(sut.isEqual(testData))
     }
 
+    @available(iOS 9.0, tvOS 9.0, watchOS 2.0, OSX 10.11, *)
     func testRandomChainingOrderEqualness() {
         let sut = NSAttributedString {
             AText("Hello world")

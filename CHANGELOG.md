@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.3.1] - 2019-07-20
+- [Removed] OS version requirements of Package.swift #1
+
 ## [0.3.0] - 2019-07-18
 - [Changed] Replace UIKitForMac to macCatalyst to reflect the changes in beta 4
 - [Changed] Replace .color() with .foregroundColor() to reflect the changes in beta 4

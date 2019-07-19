@@ -209,6 +209,7 @@ extension Component {
         return self.paragraphStyle(paragraphStyle)
     }
 
+    @available(iOS 9.0, tvOS 9.0, watchOS 2.0, OSX 10.11, *)
     public func allowsDefaultTighteningForTruncation() -> Component {
         let paragraphStyle = getMutableParagraphStyle()
         paragraphStyle.allowsDefaultTighteningForTruncation = true

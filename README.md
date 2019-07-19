@@ -48,7 +48,7 @@ let attributedString = NSAttributedString {
 ```
 
 ## Requirements
-Xcode 11 beta 4, iOS 13, macOS 10.15, tvOS 13, or watchOS 13, because it uses Swift 5.1 features like [Function Builder](https://forums.swift.org/t/function-builders/25167).
+Xcode 11 beta 4. This project uses Swift 5.1 feature [Function Builder](https://forums.swift.org/t/function-builders/25167).
 
 ## Installation
 Please use **Swift Package Manager** to install. 
