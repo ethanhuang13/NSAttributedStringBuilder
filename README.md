@@ -20,6 +20,7 @@ Project Link: [https://github.com/ethanhuang13/NSAttributedStringBuilder](https:
 | 💪 | Support most attributes in `NSAttributedString.Key` |
 | 📦 | Distribution with Swift Package Manager |
 | 🧪 | Fully tested code |
+| 🛠 | Continuously integrates in [Swift Source Compatibility Suite](https://github.com/apple/swift-source-compat-suite/pull/373) |
 
 ## How to use?
 
