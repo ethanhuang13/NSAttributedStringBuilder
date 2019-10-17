@@ -15,7 +15,7 @@ Project Link: [https://github.com/ethanhuang13/NSAttributedStringBuilder](https:
 
 | | Features |
 | --- | --- |
-| 🐦 | Open source library written in Swift 5 |
+| 🐦 | Open source library written in Swift 5.1 |
 | 🍬 | SwiftUI-like syntax |
 | 💪 | Support most attributes in `NSAttributedString.Key` |
 | 📦 | Distribution with Swift Package Manager |
@@ -52,9 +52,12 @@ let attributedString = NSAttributedString {
 Xcode 11. This project uses Swift 5.1 feature [Function Builder](https://forums.swift.org/t/function-builders/25167).
 
 ## Installation
-Please use **Swift Package Manager** to install. 
 
+### Swift Package
 Open your project in Xcode 11, navigate to **Menu -> Swift Packages -> Add Package Dependency** and enter [https://github.com/ethanhuang13/NSAttributedStringBuilder](https://github.com/ethanhuang13/NSAttributedStringBuilder) to install.
+
+### CocoaPods
+Add `pod AttributedStringBuilder13` to your `Podfile`. 
 
 ## SwiftUI Sample Project
 Besides clearer `NSAttributedString` syntax, since **NSAttributedStringBuilder** uses Function Builder it also enables API to build components in `UIViewRepresentable`(which embbed `UIView` in a SwiftUI `View`).
