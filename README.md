@@ -1,5 +1,5 @@
 # NSAttributedStringBuilder
-[![Build Status](https://app.bitrise.io/app/5a774389048d55dc/status.svg?token=eFOOkD--n78XIcKwZGZJXQ)](https://app.bitrise.io/app/5a774389048d55dc)
+[![Build Status](https://github.com/ethanhuang13/NSAttributedStringBuilder/workflows/Swift/badge.svg)
 [![codecov](https://codecov.io/gh/ethanhuang13/NSAttributedStringBuilder/branch/master/graph/badge.svg)](https://codecov.io/gh/ethanhuang13/NSAttributedStringBuilder)
 [![GitHub release](https://img.shields.io/github/release/ethanhuang13/nsattributedstringbuilder.svg)]()
 ![GitHub top language](https://img.shields.io/github/languages/top/ethanhuang13/nsattributedstringbuilder.svg)
@@ -49,7 +49,7 @@ let attributedString = NSAttributedString {
 ```
 
 ## Requirements
-Xcode 11 beta 4. This project uses Swift 5.1 feature [Function Builder](https://forums.swift.org/t/function-builders/25167).
+Xcode 11. This project uses Swift 5.1 feature [Function Builder](https://forums.swift.org/t/function-builders/25167).
 
 ## Installation
 Please use **Swift Package Manager** to install. 
