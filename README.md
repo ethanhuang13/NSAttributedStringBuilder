@@ -1,5 +1,5 @@
 # NSAttributedStringBuilder
-[![Build Status](https://github.com/ethanhuang13/NSAttributedStringBuilder/workflows/Swift/badge.svg)
+[![Build Status](https://github.com/ethanhuang13/NSAttributedStringBuilder/workflows/Swift/badge.svg)](https://github.com/ethanhuang13/NSAttributedStringBuilder/actions?workflow=Swift)
 [![codecov](https://codecov.io/gh/ethanhuang13/NSAttributedStringBuilder/branch/master/graph/badge.svg)](https://codecov.io/gh/ethanhuang13/NSAttributedStringBuilder)
 [![GitHub release](https://img.shields.io/github/release/ethanhuang13/nsattributedstringbuilder.svg)]()
 ![GitHub top language](https://img.shields.io/github/languages/top/ethanhuang13/nsattributedstringbuilder.svg)
