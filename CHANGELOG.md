@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.3.3] - 2019-11-19
+- [Added] CocoaPods support macOS and tvOS
+
+## [0.3.2] - 2019-10-17
+- [Added] CocoaPods support
+
 ## [0.3.1] - 2019-07-20
 - [Removed] OS version requirements of Package.swift #1
 

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NSAttributedStringBuilder13'
-  s.version          = '0.3.2'
+  s.version          = '0.3.3'
   s.summary          = 'Composing NSAttributedString with SwiftUI-style syntax, powerd by the now pitching Function Builder.'
 
 # This description is used to generate tags and improve search results.
@@ -33,6 +33,8 @@ Project Link: https://github.com/ethanhuang13/NSAttributedStringBuilder
   s.social_media_url = 'https://twitter.com/ethanhuang13'
 
   s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.10'
+  s.tvos.deployment_target = '9.0'
 
   s.source_files = 'Sources/NSAttributedStringBuilder/*',
                    'Sources/NSAttributedStringBuilder/Components/*'

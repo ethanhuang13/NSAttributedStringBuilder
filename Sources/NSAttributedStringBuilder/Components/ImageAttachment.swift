@@ -1,6 +1,7 @@
 #if canImport(UIKit)
 import UIKit
 
+#if !os(watchOS)
 public typealias ImageAttachment = NSAttributedString.ImageAttchment
 
 extension NSAttributedString {
@@ -25,4 +26,6 @@ extension NSAttributedString {
         }
     }
 }
+#endif
+
 #endif
