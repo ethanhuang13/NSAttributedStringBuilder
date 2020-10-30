@@ -20,10 +20,20 @@ public struct NSAttributedStringBuilder {
         }
         return mas
     }
+
+    public static func buildBlock(_ strings: String...) -> NSAttributedString {
+        return strings.joined().attributedString
+    }
 }
 
 extension NSAttributedString {
     public convenience init(@NSAttributedStringBuilder _ builder: () -> NSAttributedString) {
         self.init(attributedString: builder())
     }
+}
+
+extension String: Component {
+    public var string: String { self }
+    public var attributes: Attributes { [:] }
+    public var attributedString: NSAttributedString { NSAttributedString(string: self) }
 }
