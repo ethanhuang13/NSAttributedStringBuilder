@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.4] - 2021-04-28
 - [Changed] Update to Swift 5.4, replaced `@_functionBuilder` with `@resultBuilder`
 - [Fixed] Typo of `ImageAttachment`
 

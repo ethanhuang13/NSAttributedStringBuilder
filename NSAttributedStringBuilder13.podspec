@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NSAttributedStringBuilder13'
-  s.version          = '0.3.3'
-  s.summary          = 'Composing NSAttributedString with SwiftUI-style syntax, powerd by the now pitching Function Builder.'
+  s.version          = '0.4'
+  s.summary          = 'Composing NSAttributedString with SwiftUI-style syntax, powered by the now pitching Function Builder.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,13 +18,13 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-Composing NSAttributedString with SwiftUI-style syntax, powerd by the now pitching Function Builder.
+Composing NSAttributedString with SwiftUI-style syntax, powered by Result Builder.
 
 Project Link: https://github.com/ethanhuang13/NSAttributedStringBuilder
                        DESC
 
   s.homepage         = 'https://github.com/ethanhuang13/NSAttributedStringBuilder'
-  s.swift_versions   = '5.1'
+  s.swift_versions   = '5.4'
   # s.screenshots      = 'https://github.com/ethanhuang13/NSAttributedStringBuilder/blob/master/demo2.jpg', 
                        'https://github.com/ethanhuang13/NSAttributedStringBuilder/blob/master/demo.jpg'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
