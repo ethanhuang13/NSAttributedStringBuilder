@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+- [Changed] Update to Swift 5.4, replaced `@_functionBuilder` with `@resultBuilder`
+
 ## [0.3.3] - 2019-11-19
 - [Added] CocoaPods support macOS and tvOS
 
