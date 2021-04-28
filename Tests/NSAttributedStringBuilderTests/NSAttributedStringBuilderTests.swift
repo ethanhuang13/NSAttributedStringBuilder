@@ -1,7 +1,11 @@
-import XCTest
 @testable import NSAttributedStringBuilder
+import XCTest
 
 final class NSAttributedStringBuilderTests: XCTestCase {
+    static var allTests = [
+        ("testInitWithTextAndLink", testInitWithTextAndLink),
+    ]
+
     func testInitWithTwoAText() {
         let testData: NSAttributedString = {
             let mas = NSMutableAttributedString(string: "Hello world")
@@ -35,8 +39,4 @@ final class NSAttributedStringBuilderTests: XCTestCase {
 
         XCTAssertTrue(sut.isEqual(testData))
     }
-
-    static var allTests = [
-        ("testInitWithTextAndLink", testInitWithTextAndLink)
-    ]
 }

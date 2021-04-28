@@ -4,22 +4,37 @@ public typealias Empty = NSAttributedString.Empty
 public typealias Space = NSAttributedString.Space
 public typealias LineBreak = NSAttributedString.LineBreak
 
-extension NSAttributedString {
-    public struct Empty: Component {
+public extension NSAttributedString {
+    struct Empty: Component {
+        // MARK: Lifecycle
+
+        public init() {}
+
+        // MARK: Public
+
         public let string: String = ""
         public let attributes: Attributes = [:]
-        public init() { }
     }
 
-    public struct Space: Component {
+    struct Space: Component {
+        // MARK: Lifecycle
+
+        public init() {}
+
+        // MARK: Public
+
         public let string: String = " "
         public let attributes: Attributes = [:]
-        public init() { }
     }
 
-    public struct LineBreak: Component {
+    struct LineBreak: Component {
+        // MARK: Lifecycle
+
+        public init() {}
+
+        // MARK: Public
+
         public let string: String = "\n"
         public let attributes: Attributes = [:]
-        public init() { }
     }
 }

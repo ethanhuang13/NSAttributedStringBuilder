@@ -1,5 +1,5 @@
-import XCTest
 @testable import NSAttributedStringBuilder
+import XCTest
 
 final class ComponentBasicModifierTests: XCTestCase {
     func testModifyWithSingleAttribute() {
@@ -58,8 +58,9 @@ final class ComponentBasicModifierTests: XCTestCase {
             let mas = NSMutableAttributedString(string: "")
             mas.append(NSAttributedString(string: "Hello world",
                                           attributes: [
-                                            .font: Font.systemFont(ofSize: 20),
-                                            .foregroundColor: Color.yellow]))
+                                              .font: Font.systemFont(ofSize: 20),
+                                              .foregroundColor: Color.yellow,
+                                          ]))
             mas.append(NSAttributedString(string: "\n"))
             mas.append(NSAttributedString(string: "Second line",
                                           attributes: [.font: Font.systemFont(ofSize: 24)]))
@@ -308,22 +309,22 @@ final class ComponentBasicModifierTests: XCTestCase {
     }
 
     #if canImport(AppKit)
-    func testModifyVertical() {
-        let testData: NSAttributedString = {
-            let mas = NSMutableAttributedString(string: "Hello world",
-                                                attributes: [.verticalGlyphForm: 1])
-            mas.append(NSAttributedString(string: " with Swift"))
-            return mas
-        }()
+        func testModifyVertical() {
+            let testData: NSAttributedString = {
+                let mas = NSMutableAttributedString(string: "Hello world",
+                                                    attributes: [.verticalGlyphForm: 1])
+                mas.append(NSAttributedString(string: " with Swift"))
+                return mas
+            }()
 
-        let sut = NSAttributedString {
-            AText("Hello world")
-                .vertical()
-            AText(" with Swift")
+            let sut = NSAttributedString {
+                AText("Hello world")
+                    .vertical()
+                AText(" with Swift")
+            }
+
+            XCTAssertTrue(sut.isEqual(testData))
         }
-
-        XCTAssertTrue(sut.isEqual(testData))
-    }
     #endif
 
     func testChaining() {
@@ -351,8 +352,8 @@ final class ComponentBasicModifierTests: XCTestCase {
                              .textEffect: NSAttributedString.TextEffectStyle.letterpressStyle,
                              .underlineStyle: NSUnderlineStyle.patternDashDotDot.rawValue,
                              .underlineColor: Color.cyan,
-                             .writingDirection: NSWritingDirection.rightToLeft.rawValue
-            ])
+                             .writingDirection: NSWritingDirection.rightToLeft.rawValue]
+            )
             mas.append(NSAttributedString(string: " with Swift"))
             return mas
         }()

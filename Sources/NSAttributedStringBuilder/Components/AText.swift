@@ -1,19 +1,23 @@
 #if canImport(UIKit)
-import UIKit
+    import UIKit
 #elseif canImport(AppKit)
-import AppKit
+    import AppKit
 #endif
 
 public typealias AText = NSAttributedString.AttrText
 
-extension NSAttributedString {
-    public struct AttrText: Component {
-        public let string: String
-        public let attributes: Attributes
+public extension NSAttributedString {
+    struct AttrText: Component {
+        // MARK: Lifecycle
 
         public init(_ string: String, attributes: Attributes = [:]) {
             self.string = string
             self.attributes = attributes
         }
+
+        // MARK: Public
+
+        public let string: String
+        public let attributes: Attributes
     }
 }

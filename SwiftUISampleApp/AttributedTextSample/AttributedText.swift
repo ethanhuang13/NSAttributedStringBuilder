@@ -1,9 +1,9 @@
-import SwiftUI
 import NSAttributedStringBuilder
+import SwiftUI
 
 /// A custom view to use NSAttributedString in SwiftUI
-final public class AttributedText: UIViewRepresentable {
-    var attributedString: NSAttributedString
+public final class AttributedText: UIViewRepresentable {
+    // MARK: Lifecycle
 
     private init(_ attributedString: NSAttributedString) {
         self.attributedString = attributedString
@@ -13,22 +13,28 @@ final public class AttributedText: UIViewRepresentable {
         self.init(builder())
     }
 
-    public func makeUIView(context: UIViewRepresentableContext<AttributedText>) -> UITextView {
+    // MARK: Public
+
+    public func makeUIView(context _: UIViewRepresentableContext<AttributedText>) -> UITextView {
         let textView = UITextView(frame: .zero)
-        textView.attributedText = self.attributedString
+        textView.attributedText = attributedString
         textView.isEditable = false
         textView.backgroundColor = .clear
         textView.textAlignment = .center
         return textView
     }
 
-    public func updateUIView(_ textView: UITextView, context: UIViewRepresentableContext<AttributedText>) {
-        textView.attributedText = self.attributedString
+    public func updateUIView(_ textView: UITextView, context _: UIViewRepresentableContext<AttributedText>) {
+        textView.attributedText = attributedString
     }
+
+    // MARK: Internal
+
+    var attributedString: NSAttributedString
 }
 
 #if DEBUG
-struct AttributedText_Previews : PreviewProvider {
+struct AttributedText_Previews: PreviewProvider {
     static var previews: some View {
         AttributedText {
             ImageAttachment(UIImage(named: "Swift_logo_color_rgb.jpg")!, size: CGSize(width: 90, height: 90))

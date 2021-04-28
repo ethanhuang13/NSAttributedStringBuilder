@@ -3,7 +3,7 @@ import SwiftUI
 
 let image = UIImage(named: "Swift_logo_color_rgb.jpg")!
 
-struct ContentView : View {
+struct ContentView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Text Title")
@@ -17,7 +17,7 @@ struct ContentView : View {
             Image(uiImage: image)
                 .padding(.bottom)
 
-            // UITextView: UIViewRepresentable 
+            // UITextView: UIViewRepresentable
             AttributedText {
                 AText("AttributedText Title")
                     .font(.preferredFont(forTextStyle: .largeTitle))
@@ -35,7 +35,7 @@ struct ContentView : View {
 }
 
 #if DEBUG
-struct ContentView_Previews : PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }

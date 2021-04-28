@@ -1,11 +1,11 @@
-import XCTest
 @testable import NSAttributedStringBuilder
+import XCTest
 
 #if canImport(UIKit)
-import UIKit
-import Foundation
+    import Foundation
+    import UIKit
 #elseif canImport(AppKit)
-import AppKit
+    import AppKit
 #endif
 
 final class ComponentParagraphSylteModifierTests: XCTestCase {
@@ -300,91 +300,91 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
 
     #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 
-    func testModifyTextBlocks() {
-        let textBlock = NSTextBlock()
-        textBlock.setWidth(30, type: .absoluteValueType, for: .border)
+        func testModifyTextBlocks() {
+            let textBlock = NSTextBlock()
+            textBlock.setWidth(30, type: .absoluteValueType, for: .border)
 
-        let testData: NSAttributedString = {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.textBlocks = [textBlock]
+            let testData: NSAttributedString = {
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.textBlocks = [textBlock]
 
-            let mas = NSMutableAttributedString(string: "Hello world",
-                                                attributes: [.paragraphStyle: paragraphStyle])
-            mas.append(NSAttributedString(string: " with Swift"))
-            return mas
-        }()
+                let mas = NSMutableAttributedString(string: "Hello world",
+                                                    attributes: [.paragraphStyle: paragraphStyle])
+                mas.append(NSAttributedString(string: " with Swift"))
+                return mas
+            }()
 
-        let sut = NSAttributedString {
-            AText("Hello world")
-                .textBlocks([textBlock])
-            AText(" with Swift")
+            let sut = NSAttributedString {
+                AText("Hello world")
+                    .textBlocks([textBlock])
+                AText(" with Swift")
+            }
+
+            XCTAssertTrue(sut.isEqual(testData))
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
-    }
+        @available(OSX 10.13, *)
+        func testModifyTextList() {
+            let textList = NSTextList(markerFormat: .box, options: 0)
 
-    @available(OSX 10.13, *)
-    func testModifyTextList() {
-        let textList = NSTextList(markerFormat: .box, options: 0)
+            let testData: NSAttributedString = {
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.textLists = [textList]
 
-        let testData: NSAttributedString = {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.textLists = [textList]
+                let mas = NSMutableAttributedString(string: "Hello world",
+                                                    attributes: [.paragraphStyle: paragraphStyle])
+                mas.append(NSAttributedString(string: " with Swift"))
+                return mas
+            }()
 
-            let mas = NSMutableAttributedString(string: "Hello world",
-                                                attributes: [.paragraphStyle: paragraphStyle])
-            mas.append(NSAttributedString(string: " with Swift"))
-            return mas
-        }()
+            let sut = NSAttributedString {
+                AText("Hello world")
+                    .textLists([textList])
+                AText(" with Swift")
+            }
 
-        let sut = NSAttributedString {
-            AText("Hello world")
-                .textLists([textList])
-            AText(" with Swift")
+            XCTAssertTrue(sut.isEqual(testData))
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
-    }
+        func testModifyTighteningFactorForTruncation() {
+            let testData: NSAttributedString = {
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.tighteningFactorForTruncation = 0.5
 
-    func testModifyTighteningFactorForTruncation() {
-        let testData: NSAttributedString = {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.tighteningFactorForTruncation = 0.5
+                let mas = NSMutableAttributedString(string: "Hello world",
+                                                    attributes: [.paragraphStyle: paragraphStyle])
+                mas.append(NSAttributedString(string: " with Swift"))
+                return mas
+            }()
 
-            let mas = NSMutableAttributedString(string: "Hello world",
-                                                attributes: [.paragraphStyle: paragraphStyle])
-            mas.append(NSAttributedString(string: " with Swift"))
-            return mas
-        }()
+            let sut = NSAttributedString {
+                AText("Hello world")
+                    .tighteningFactorForTruncation(0.5)
+                AText(" with Swift")
+            }
 
-        let sut = NSAttributedString {
-            AText("Hello world")
-                .tighteningFactorForTruncation(0.5)
-            AText(" with Swift")
+            XCTAssertTrue(sut.isEqual(testData))
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
-    }
+        func testModifyHeaderLevel() {
+            let testData: NSAttributedString = {
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.headerLevel = 2
 
-    func testModifyHeaderLevel() {
-        let testData: NSAttributedString = {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.headerLevel = 2
+                let mas = NSMutableAttributedString(string: "Hello world",
+                                                    attributes: [.paragraphStyle: paragraphStyle])
+                mas.append(NSAttributedString(string: " with Swift"))
+                return mas
+            }()
 
-            let mas = NSMutableAttributedString(string: "Hello world",
-                                                attributes: [.paragraphStyle: paragraphStyle])
-            mas.append(NSAttributedString(string: " with Swift"))
-            return mas
-        }()
+            let sut = NSAttributedString {
+                AText("Hello world")
+                    .headerLevel(2)
+                AText(" with Swift")
+            }
 
-        let sut = NSAttributedString {
-            AText("Hello world")
-                .headerLevel(2)
-            AText(" with Swift")
+            XCTAssertTrue(sut.isEqual(testData))
         }
-
-        XCTAssertTrue(sut.isEqual(testData))
-    }
     #endif
 
     @available(iOS 9.0, tvOS 9.0, watchOS 2.0, OSX 10.11, *)

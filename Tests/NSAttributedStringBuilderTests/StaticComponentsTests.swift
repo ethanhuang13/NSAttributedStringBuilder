@@ -1,5 +1,5 @@
-import XCTest
 @testable import NSAttributedStringBuilder
+import XCTest
 
 final class StaticComponentsTests: XCTestCase {
     func testEmpty() {

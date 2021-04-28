@@ -1,16 +1,14 @@
 #if canImport(UIKit)
-import UIKit
+    import UIKit
 #elseif canImport(AppKit)
-import AppKit
+    import AppKit
 #endif
 
 public typealias Link = NSAttributedString.Link
 
-extension NSAttributedString {
-    public struct Link: Component {
-        public let string: String
-        public let url: URL
-        public let attributes: Attributes
+public extension NSAttributedString {
+    struct Link: Component {
+        // MARK: Lifecycle
 
         public init(_ string: String, url: URL, attributes: Attributes = [:]) {
             self.string = string
@@ -20,6 +18,12 @@ extension NSAttributedString {
             attributes[.link] = url
             self.attributes = attributes
         }
+
+        // MARK: Public
+
+        public let string: String
+        public let url: URL
+        public let attributes: Attributes
 
         public var attributedString: NSAttributedString {
             NSAttributedString(string: string, attributes: attributes)
