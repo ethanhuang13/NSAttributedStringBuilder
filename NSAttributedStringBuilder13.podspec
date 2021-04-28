@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NSAttributedStringBuilder13'
-  s.version          = '0.4'
+  s.version          = '0.4.1'
   s.summary          = 'Composing NSAttributedString with SwiftUI-style syntax, powered by Result Builder.'
 
 # This description is used to generate tags and improve search results.
