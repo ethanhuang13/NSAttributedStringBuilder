@@ -2,10 +2,10 @@
 import UIKit
 
 #if !os(watchOS)
-public typealias ImageAttachment = NSAttributedString.ImageAttchment
+public typealias ImageAttachment = NSAttributedString.ImageAttachment
 
 extension NSAttributedString {
-    public struct ImageAttchment: Component {
+    public struct ImageAttachment: Component {
         public let string: String = ""
         public let attributes: Attributes = [:]
         private let attachment: NSTextAttachment
