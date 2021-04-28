@@ -7,7 +7,7 @@
 [![Twitter](https://img.shields.io/badge/Twitter-%40ethanhuang13-blue.svg)](https://twitter.com/ethanhuang13)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/ethanhuang13) 
 
-Composing `NSAttributedString` with SwiftUI-style syntax, powerd by the now pitching [Function Builder](https://forums.swift.org/t/function-builders/25167).
+Composing `NSAttributedString` with SwiftUI-style syntax, powered by [Result Builder](https://forums.swift.org/t/function-builders/25167).
 
 Project Link: [https://github.com/ethanhuang13/NSAttributedStringBuilder](https://github.com/ethanhuang13/NSAttributedStringBuilder)
 
