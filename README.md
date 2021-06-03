@@ -48,7 +48,35 @@ let attributedString = NSAttributedString {
 
 ```
 
+Add  Conditional String Builder and Loop String Builder
+
+```Swift
+@NSAttributedStringBuilder
+var attributedString:NSAttributedString{
+    AText("Hello world")
+         .attribute(.foregroundColor, value: Color.blue)
+            
+   for character in ["a", "b", "c", "d"] {
+       AText(character)
+            .backgroundColor(UIColor.red)
+            .alignment(.left)
+   }
+            
+   if condition {
+       AText("True")
+            .foregroundColor(UIColor.black)
+   }
+   else{
+       AText("False")
+            .backgroundColor(UIColor.yellow)
+   }
+}
+```
+
+
+
 ## Requirements
+
 Xcode 12.5. This project uses Swift 5.4 feature [Result Builder](https://github.com/apple/swift-evolution/blob/main/proposals/0289-result-builders.md).
 
 ## Installation
