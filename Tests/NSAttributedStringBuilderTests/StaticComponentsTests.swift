@@ -14,7 +14,7 @@ final class StaticComponentsTests: XCTestCase {
             Empty()
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testSpace() {
@@ -28,7 +28,7 @@ final class StaticComponentsTests: XCTestCase {
             Space()
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testLineBreak() {
@@ -45,6 +45,6 @@ final class StaticComponentsTests: XCTestCase {
             Empty()
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 }

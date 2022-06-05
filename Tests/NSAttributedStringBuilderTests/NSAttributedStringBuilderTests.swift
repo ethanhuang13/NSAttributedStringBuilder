@@ -18,7 +18,7 @@ final class NSAttributedStringBuilderTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testInitWithTextAndLink() {
@@ -37,6 +37,6 @@ final class NSAttributedStringBuilderTests: XCTestCase {
             Link("Apple", url: URL(string: "https://www.apple.com")!)
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 }

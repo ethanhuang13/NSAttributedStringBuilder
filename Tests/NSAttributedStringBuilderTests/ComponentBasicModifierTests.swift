@@ -16,7 +16,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyBackgroundColor() {
@@ -33,7 +33,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyBaselineOffset() {
@@ -50,7 +50,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyFontAndColor() {
@@ -76,7 +76,7 @@ final class ComponentBasicModifierTests: XCTestCase {
                 .font(.systemFont(ofSize: 24))
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyExpansion() {
@@ -93,7 +93,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyKerning() {
@@ -110,7 +110,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyLigature() {
@@ -127,7 +127,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyObliqueness() {
@@ -144,7 +144,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyShadow() {
@@ -166,7 +166,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyStrikethrough() {
@@ -183,7 +183,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyStrikethroughWithColor() {
@@ -201,7 +201,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyStroke() {
@@ -218,7 +218,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyStrokeWithColor() {
@@ -236,7 +236,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyTextEffect() {
@@ -253,7 +253,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyUnderline() {
@@ -270,7 +270,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyUnderlineWithColor() {
@@ -288,7 +288,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyWritingDirection() {
@@ -305,7 +305,7 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     #if canImport(AppKit)
@@ -323,7 +323,7 @@ final class ComponentBasicModifierTests: XCTestCase {
                 AText(" with Swift")
             }
 
-            XCTAssertTrue(sut.isEqual(testData))
+            XCTAssertEqual(sut, testData)
         }
     #endif
 
@@ -377,6 +377,6 @@ final class ComponentBasicModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 }

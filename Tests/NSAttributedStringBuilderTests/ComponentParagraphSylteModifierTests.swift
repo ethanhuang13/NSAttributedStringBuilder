@@ -26,7 +26,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyMutableParagraphStyle() {
@@ -49,7 +49,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyAlignment() {
@@ -69,7 +69,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyFirstHeadIndent() {
@@ -89,7 +89,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyHeadIndent() {
@@ -109,7 +109,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyTailIndent() {
@@ -129,7 +129,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyLinebreakMode() {
@@ -149,7 +149,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyLineHeight() {
@@ -171,7 +171,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyLineSpacing() {
@@ -191,7 +191,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyParagraphSpacing() {
@@ -212,7 +212,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyBaseWritingDirection() {
@@ -232,7 +232,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyHyphenationFactor() {
@@ -252,7 +252,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     @available(iOS 9.0, tvOS 9.0, watchOS 2.0, OSX 10.11, *)
@@ -273,7 +273,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     func testModifyTabStops() {
@@ -295,7 +295,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     #if canImport(AppKit) && !targetEnvironment(macCatalyst)
@@ -320,7 +320,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
                 AText(" with Swift")
             }
 
-            XCTAssertTrue(sut.isEqual(testData))
+            XCTAssertEqual(sut, testData)
         }
 
         @available(OSX 10.13, *)
@@ -343,7 +343,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
                 AText(" with Swift")
             }
 
-            XCTAssertTrue(sut.isEqual(testData))
+            XCTAssertEqual(sut, testData)
         }
 
         func testModifyTighteningFactorForTruncation() {
@@ -363,7 +363,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
                 AText(" with Swift")
             }
 
-            XCTAssertTrue(sut.isEqual(testData))
+            XCTAssertEqual(sut, testData)
         }
 
         func testModifyHeaderLevel() {
@@ -383,7 +383,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
                 AText(" with Swift")
             }
 
-            XCTAssertTrue(sut.isEqual(testData))
+            XCTAssertEqual(sut, testData)
         }
     #endif
 
@@ -428,7 +428,7 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 
     @available(iOS 9.0, tvOS 9.0, watchOS 2.0, OSX 10.11, *)
@@ -487,6 +487,6 @@ final class ComponentParagraphSylteModifierTests: XCTestCase {
             AText(" with Swift")
         }
 
-        XCTAssertTrue(sut.isEqual(testData))
+        XCTAssertEqual(sut, testData)
     }
 }
