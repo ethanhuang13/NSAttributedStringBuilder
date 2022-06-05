@@ -1,9 +1,9 @@
 #if canImport(UIKit)
-    import UIKit
-    public typealias Size = CGSize
+import UIKit
+public typealias Size = CGSize
 #elseif canImport(AppKit)
-    import AppKit
-    public typealias Size = NSSize
+import AppKit
+public typealias Size = NSSize
 #endif
 
 public protocol Component {
@@ -17,7 +17,7 @@ public enum Ligature: Int {
     case `default` = 1
 
     #if canImport(AppKit)
-        case all = 2 // Value 2 is unsupported on iOS
+    case all = 2 // Value 2 is unsupported on iOS
     #endif
 }
 
@@ -122,9 +122,9 @@ public extension Component {
     }
 
     #if canImport(AppKit)
-        func vertical() -> Component {
-            attributes([.verticalGlyphForm: 1])
-        }
+    func vertical() -> Component {
+        attributes([.verticalGlyphForm: 1])
+    }
     #endif
 }
 
@@ -143,8 +143,7 @@ public extension Component {
         if let mps = attributes[.paragraphStyle] as? NSMutableParagraphStyle {
             return mps
         } else if let ps = attributes[.paragraphStyle] as? NSParagraphStyle,
-                  let mps = ps.mutableCopy() as? NSMutableParagraphStyle
-        {
+                  let mps = ps.mutableCopy() as? NSMutableParagraphStyle {
             return mps
         } else {
             return NSMutableParagraphStyle()
@@ -229,29 +228,29 @@ public extension Component {
     }
 
     #if canImport(AppKit) && !targetEnvironment(macCatalyst)
-        func textBlocks(_ textBlocks: [NSTextBlock]) -> Component {
-            let paragraphStyle = getMutableParagraphStyle()
-            paragraphStyle.textBlocks = textBlocks
-            return self.paragraphStyle(paragraphStyle)
-        }
+    func textBlocks(_ textBlocks: [NSTextBlock]) -> Component {
+        let paragraphStyle = getMutableParagraphStyle()
+        paragraphStyle.textBlocks = textBlocks
+        return self.paragraphStyle(paragraphStyle)
+    }
 
-        func textLists(_ textLists: [NSTextList]) -> Component {
-            let paragraphStyle = getMutableParagraphStyle()
-            paragraphStyle.textLists = textLists
-            return self.paragraphStyle(paragraphStyle)
-        }
+    func textLists(_ textLists: [NSTextList]) -> Component {
+        let paragraphStyle = getMutableParagraphStyle()
+        paragraphStyle.textLists = textLists
+        return self.paragraphStyle(paragraphStyle)
+    }
 
-        func tighteningFactorForTruncation(_ tighteningFactorForTruncation: Float) -> Component {
-            let paragraphStyle = getMutableParagraphStyle()
-            paragraphStyle.tighteningFactorForTruncation = tighteningFactorForTruncation
-            return self.paragraphStyle(paragraphStyle)
-        }
+    func tighteningFactorForTruncation(_ tighteningFactorForTruncation: Float) -> Component {
+        let paragraphStyle = getMutableParagraphStyle()
+        paragraphStyle.tighteningFactorForTruncation = tighteningFactorForTruncation
+        return self.paragraphStyle(paragraphStyle)
+    }
 
-        func headerLevel(_ headerLevel: Int) -> Component {
-            let paragraphStyle = getMutableParagraphStyle()
-            paragraphStyle.headerLevel = headerLevel
-            return self.paragraphStyle(paragraphStyle)
-        }
+    func headerLevel(_ headerLevel: Int) -> Component {
+        let paragraphStyle = getMutableParagraphStyle()
+        paragraphStyle.headerLevel = headerLevel
+        return self.paragraphStyle(paragraphStyle)
+    }
     #endif
 }
 
