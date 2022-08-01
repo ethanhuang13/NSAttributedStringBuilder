@@ -1,7 +1,7 @@
 #if canImport(UIKit)
-import UIKit
+    import UIKit
 #elseif canImport(AppKit)
-import AppKit
+    import AppKit
 #endif
 
 public typealias AText = NSAttributedString.AttrText
@@ -18,6 +18,6 @@ public extension NSAttributedString {
         // MARK: Public
 
         public let string: String
-        public var attributes: Attributes
+        public let attributes: Attributes
     }
 }

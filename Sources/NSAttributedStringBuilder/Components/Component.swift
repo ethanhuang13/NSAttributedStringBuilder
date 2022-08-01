@@ -1,9 +1,9 @@
 #if canImport(UIKit)
-import UIKit
-public typealias Size = CGSize
+    import UIKit
+    public typealias Size = CGSize
 #elseif canImport(AppKit)
-import AppKit
-public typealias Size = NSSize
+    import AppKit
+    public typealias Size = NSSize
 #endif
 
 public protocol Component {
@@ -18,11 +18,15 @@ public enum Ligature: Int {
     case `default` = 1
 
     #if canImport(AppKit)
-    case all = 2 // Value 2 is unsupported on iOS
+        case all = 2 // Value 2 is unsupported on iOS
     #endif
 }
 
 public extension Component {
+    private func build(_ string: String, attributes: Attributes) -> Component {
+        AText(string, attributes: attributes)
+    }
+
     var attributedString: NSAttributedString {
         NSAttributedString(string: string, attributes: attributes)
     }
@@ -37,10 +41,6 @@ public extension Component {
             attributes[attribute.key] = attribute.value
         }
         return build(string, attributes: attributes)
-    }
-
-    private func build(_ string: String, attributes: Attributes) -> Component {
-        AText(string, attributes: attributes)
     }
 }
 
@@ -123,9 +123,9 @@ public extension Component {
     }
 
     #if canImport(AppKit)
-    func vertical() -> Component {
-        attributes([.verticalGlyphForm: 1])
-    }
+        func vertical() -> Component {
+            attributes([.verticalGlyphForm: 1])
+        }
     #endif
 }
 
@@ -144,7 +144,8 @@ public extension Component {
         if let mps = attributes[.paragraphStyle] as? NSMutableParagraphStyle {
             return mps
         } else if let ps = attributes[.paragraphStyle] as? NSParagraphStyle,
-                  let mps = ps.mutableCopy() as? NSMutableParagraphStyle {
+                  let mps = ps.mutableCopy() as? NSMutableParagraphStyle
+        {
             return mps
         } else {
             return NSMutableParagraphStyle()
@@ -229,77 +230,79 @@ public extension Component {
     }
 
     #if canImport(AppKit) && !targetEnvironment(macCatalyst)
-    func textBlocks(_ textBlocks: [NSTextBlock]) -> Component {
-        let paragraphStyle = getMutableParagraphStyle()
-        paragraphStyle.textBlocks = textBlocks
-        return self.paragraphStyle(paragraphStyle)
-    }
+        func textBlocks(_ textBlocks: [NSTextBlock]) -> Component {
+            let paragraphStyle = getMutableParagraphStyle()
+            paragraphStyle.textBlocks = textBlocks
+            return self.paragraphStyle(paragraphStyle)
+        }
 
-    func textLists(_ textLists: [NSTextList]) -> Component {
-        let paragraphStyle = getMutableParagraphStyle()
-        paragraphStyle.textLists = textLists
-        return self.paragraphStyle(paragraphStyle)
-    }
+        func textLists(_ textLists: [NSTextList]) -> Component {
+            let paragraphStyle = getMutableParagraphStyle()
+            paragraphStyle.textLists = textLists
+            return self.paragraphStyle(paragraphStyle)
+        }
 
-    func tighteningFactorForTruncation(_ tighteningFactorForTruncation: Float) -> Component {
-        let paragraphStyle = getMutableParagraphStyle()
-        paragraphStyle.tighteningFactorForTruncation = tighteningFactorForTruncation
-        return self.paragraphStyle(paragraphStyle)
-    }
+        func tighteningFactorForTruncation(_ tighteningFactorForTruncation: Float) -> Component {
+            let paragraphStyle = getMutableParagraphStyle()
+            paragraphStyle.tighteningFactorForTruncation = tighteningFactorForTruncation
+            return self.paragraphStyle(paragraphStyle)
+        }
 
-    func headerLevel(_ headerLevel: Int) -> Component {
-        let paragraphStyle = getMutableParagraphStyle()
-        paragraphStyle.headerLevel = headerLevel
-        return self.paragraphStyle(paragraphStyle)
-    }
+        func headerLevel(_ headerLevel: Int) -> Component {
+            let paragraphStyle = getMutableParagraphStyle()
+            paragraphStyle.headerLevel = headerLevel
+            return self.paragraphStyle(paragraphStyle)
+        }
     #endif
 }
 
 // MARK: - No 'modifiers' for these keys. Use .attributes() or .attribute(:value:) instead.
 
-// #if canImport(UIKit)
-// let iOSKeys: [NSAttributedString.Key] = [
-//    .UIAccessibilitySpeechAttributeSpellOut, // iOS 13+
-//    .UIAccessibilityTextAttributeContext, // iOS 13+
-//    .accessibilitySpeechIPANotation, // iOS 11.0+
-//    .accessibilitySpeechLanguage, // iOS 7.0+
-//    .accessibilitySpeechPitch, // iOS 7.0+
-//    .accessibilitySpeechPunctuation, // iOS 7.0+
-//    .accessibilitySpeechQueueAnnouncement, // iOS 11.0+
-//    .accessibilityTextCustom, // iOS 11.0+
-//    .accessibilityTextHeadingLevel, // iOS 11.0+
-// ]
-// #endif
-//
-// #if canImport(AppKit) && !targetEnvironment(UIKitForMac)
-// let macOSKeys: [NSAttributedString.Key] = [
-//    .accessibilityAlignment, // macOS 10.12+
-//    .accessibilityAnnotationTextAttribute, // macOS 10.13+
-//    .accessibilityAttachment, // macOS 10.4+, Deprecated
-//    .accessibilityAutocorrected, // macOS 10.7+
-//    .accessibilityBackgroundColor, // macOS 10.4+
-//    .accessibilityCustomText, // macOS 10.13+
-//    .accessibilityFont, // macOS 10.4+
-//    .accessibilityForegroundColor, // macOS 10.4+
-//    .accessibilityLanguage, // macOS 10.13+
-//    .accessibilityLink, // macOS 10.4+
-//    .accessibilityListItemIndex, // macOS 10.11+
-//    .accessibilityListItemLevel, // macOS 10.11+
-//    .accessibilityListItemPrefix, // macOS 10.11+
-//    .accessibilityMarkedMisspelled, // macOS 10.4+
-//    .accessibilityMisspelled, // macOS 10.4+
-//    .accessibilityShadow, // macOS 10.4+
-//    .accessibilityStrikethrough, // macOS 10.4+
-//    .accessibilityStrikethroughColor, // macOS 10.4+
-//    .accessibilitySuperscript, // macOS 10.4+
-//    .accessibilityUnderline, // macOS 10.4+
-//    .accessibilityUnderlineColor, // macOS 10.4+
-//    .cursor, // macOS 10.3+
-//    .glyphInfo, // macOS 10.2+
-//    .markedClauseSegment, // macOS 10.5+
-//    .spellingState, // macOS 10.5+
-//    .superscript, // macOS 10.0+
-//    .textAlternatives, // macOS 10.8+
-//    .toolTip, // macOS 10.3+
-// ]
-// #endif
+/*
+ #if canImport(UIKit)
+ let iOSKeys: [NSAttributedString.Key] = [
+     .UIAccessibilitySpeechAttributeSpellOut, // iOS 13+
+     .UIAccessibilityTextAttributeContext, // iOS 13+
+     .accessibilitySpeechIPANotation, // iOS 11.0+
+     .accessibilitySpeechLanguage, // iOS 7.0+
+     .accessibilitySpeechPitch, // iOS 7.0+
+     .accessibilitySpeechPunctuation, // iOS 7.0+
+     .accessibilitySpeechQueueAnnouncement, // iOS 11.0+
+     .accessibilityTextCustom, // iOS 11.0+
+     .accessibilityTextHeadingLevel, // iOS 11.0+
+ ]
+ #endif
+
+ #if canImport(AppKit) && !targetEnvironment(UIKitForMac)
+ let macOSKeys: [NSAttributedString.Key] = [
+     .accessibilityAlignment, // macOS 10.12+
+     .accessibilityAnnotationTextAttribute, // macOS 10.13+
+     .accessibilityAttachment, // macOS 10.4+, Deprecated
+     .accessibilityAutocorrected, // macOS 10.7+
+     .accessibilityBackgroundColor, // macOS 10.4+
+     .accessibilityCustomText, // macOS 10.13+
+     .accessibilityFont, // macOS 10.4+
+     .accessibilityForegroundColor, // macOS 10.4+
+     .accessibilityLanguage, // macOS 10.13+
+     .accessibilityLink, // macOS 10.4+
+     .accessibilityListItemIndex, // macOS 10.11+
+     .accessibilityListItemLevel, // macOS 10.11+
+     .accessibilityListItemPrefix, // macOS 10.11+
+     .accessibilityMarkedMisspelled, // macOS 10.4+
+     .accessibilityMisspelled, // macOS 10.4+
+     .accessibilityShadow, // macOS 10.4+
+     .accessibilityStrikethrough, // macOS 10.4+
+     .accessibilityStrikethroughColor, // macOS 10.4+
+     .accessibilitySuperscript, // macOS 10.4+
+     .accessibilityUnderline, // macOS 10.4+
+     .accessibilityUnderlineColor, // macOS 10.4+
+     .cursor, // macOS 10.3+
+     .glyphInfo, // macOS 10.2+
+     .markedClauseSegment, // macOS 10.5+
+     .spellingState, // macOS 10.5+
+     .superscript, // macOS 10.0+
+     .textAlternatives, // macOS 10.8+
+     .toolTip, // macOS 10.3+
+ ]
+ #endif
+ */

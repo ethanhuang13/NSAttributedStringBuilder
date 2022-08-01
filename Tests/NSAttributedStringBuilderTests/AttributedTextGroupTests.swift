@@ -50,4 +50,32 @@ final class AttributedTextGroupTests: XCTestCase {
         }
         XCTAssertTrue(att1.isEqual(att2))
     }
+    
+    func test2() {
+        
+        let att1 = NSAttributedString {
+            AText("111")
+                .backgroundColor(.blue)
+            AText("222")
+                .font(.systemFont(ofSize: 18, weight: .semibold))
+                .backgroundColor(.blue)
+            AText("333")
+                .font(.systemFont(ofSize: 18, weight: .semibold))
+                .backgroundColor(.blue)
+                
+        }
+        
+        let att2 = NSAttributedString {
+            ATextGroup {
+                AText("111")
+                ATextGroup {
+                    AText("222")
+                    AText("333")
+                }
+                .font(.systemFont(ofSize: 18, weight: .semibold))
+            }
+            .backgroundColor(.blue)
+        }
+        XCTAssertTrue(att1.isEqual(att2))
+    }
 }

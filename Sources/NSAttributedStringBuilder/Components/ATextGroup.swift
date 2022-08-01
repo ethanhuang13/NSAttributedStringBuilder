@@ -9,9 +9,11 @@ public typealias ATextGroup = NSAttributedString.AttrTextGroup
 public extension NSAttributedString {
     struct AttrTextGroup: Component {
         public let string: String = ""
+        
         public let attributes: Attributes = [:]
 
-        public var attributedTexts: [AttrText]
+        public var attributedTexts: [AText]
+        
         public var attributedString: NSAttributedString {
             let mas = NSMutableAttributedString(string: "")
             for attributedText in attributedTexts {
@@ -20,19 +22,26 @@ public extension NSAttributedString {
             return mas
         }
 
-        public init(@AttrTextGroupBuilder attrTextGroupBuilder: () -> [AttrText]) {
+        private init(attributedTexts: [AText]) {
+            self.attributedTexts = attributedTexts
+        }
+        
+        public init(@AttrTextGroupBuilder attrTextGroupBuilder: () -> [AText]) {
             attributedTexts = attrTextGroupBuilder()
         }
 
         public func attributes(_ newAttributes: Attributes) -> Component {
             guard attributedTexts.count > 0 else { return self }
-            var group = self
+            var tempAttributedTexts = [AText]()
             for attribute in newAttributes {
-                for index in 0 ..< group.attributedTexts.count {
-                    group.attributedTexts[index].attributes[attribute.key] = attribute.value
+                for attributedText in attributedTexts {
+                    let tempString = attributedText.string
+                    var tempAttributes = attributedText.attributes
+                    tempAttributes[attribute.key] = attribute.value
+                    tempAttributedTexts.append(AText(tempString, attributes: tempAttributes))
                 }
             }
-            return group
+            return AttrTextGroup(attributedTexts: tempAttributedTexts)
         }
     }
 }
@@ -40,6 +49,16 @@ public extension NSAttributedString {
 @resultBuilder
 public enum AttrTextGroupBuilder {
     public static func buildBlock(_ components: Component...) -> [AText] {
-        components.compactMap { $0 as? AText }
+        var attributedTexts = [AText]()
+        for component in components {
+            if let attributedText = component as? AText {
+                attributedTexts.append(attributedText)
+            } else if let attributedTextGroup = component as? ATextGroup {
+                attributedTexts = attributedTexts + attributedTextGroup.attributedTexts
+            } else {
+                continue
+            }
+        }
+        return attributedTexts
     }
 }
